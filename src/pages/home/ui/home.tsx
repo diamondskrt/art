@@ -1,8 +1,10 @@
+import Image from 'next/image'
 import { Locale, useTranslations } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import { use } from 'react'
 
-import { ThemeSwitcher, Button, LocaleSwitcher } from '~/shared/ui'
+import { Typography } from '~/shared/ui'
+import { AppLayout } from '~/widgets/app-layout'
 
 type Props = {
   params: Promise<{ locale: Locale }>
@@ -13,17 +15,42 @@ export function Home({ params }: Props) {
 
   setRequestLocale(locale)
 
-  const t = useTranslations('HomePage')
+  const t = useTranslations('IndexPage')
 
   return (
-    <div className="p-4">
-      <h1 className="text-4xl font-bold">{t('title')}</h1>
-      <p>{t('about')}</p>
-      <div className="flex items-center gap-2 mt-4">
-        <Button>Button</Button>
-        <ThemeSwitcher />
-        <LocaleSwitcher />
+    <AppLayout>
+      <div className="section">
+        <div className="container relative h-[500px]">
+          <Image
+            src="/assets/img/zaria-forman.webp"
+            fill
+            priority
+            alt="Picture of the author"
+            className="object-cover"
+          />
+        </div>
       </div>
-    </div>
+      <div className="section">
+        <div className="container">
+          <Typography variant="h4" className="mb-4 uppercase">
+            BIO and CV
+          </Typography>
+          <Typography variant="small">
+            {t.rich('description', {
+              strong: (chunks) => (
+                <Typography variant="strong">{chunks}</Typography>
+              ),
+            })}
+          </Typography>
+        </div>
+      </div>
+      <div className="section">
+        <div className="container">
+          <Typography variant="h4" className="mb-4 uppercase">
+            Drawings
+          </Typography>
+        </div>
+      </div>
+    </AppLayout>
   )
 }

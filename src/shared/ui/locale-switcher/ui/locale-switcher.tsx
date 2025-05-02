@@ -1,10 +1,12 @@
+'use client'
+
 import { useLocale, useTranslations, Locale } from 'next-intl'
 import { useTransition } from 'react'
 
-import { usePathname, useRouter, routing } from '~/shared/lib'
+import { usePathname, useRouter, routing, cn } from '~/shared/lib'
 import { Select } from '~/shared/ui'
 
-function LocaleSwitcher() {
+function LocaleSwitcher({ className }: { className?: string }) {
   const t = useTranslations('LocaleSwitcher')
   const locale = useLocale()
   const router = useRouter()
@@ -28,7 +30,7 @@ function LocaleSwitcher() {
         value: cur,
       }))}
       disabled={isPending}
-      triggerClassName="min-w-[80px]"
+      triggerClassName={cn(className)}
       onSelectChange={onSelectChange}
     />
   )

@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -112,11 +112,45 @@
   --sidebar-ring: oklch(0.488 0.243 264.376);
 }
 
+@utility container {
+  @media (width >= 80rem) {
+    max-width: 80rem;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  h1 {
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+  }
+  h2 {
+    @apply scroll-m-20 text-3xl font-semibold tracking-tight;
+  }
+  h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+  h4 {
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+  p,
+  a {
+    @apply leading-7;
+  }
+  small {
+    @apply text-sm leading-none;
+  }
+  code {
+    @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+  }
+  .container {
+    @apply mx-auto px-2;
+  }
+  .section {
+    @apply py-12;
   }
 }
