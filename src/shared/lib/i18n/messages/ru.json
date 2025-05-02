@@ -1,0 +1,13 @@
+{
+  "HomePage": {
+    "title": "Привет мир!",
+    "about": "Перейти на страницу о нас"
+  },
+  "LocaleSwitcher": {
+    "label": "Сменить язык",
+    "locale": "{locale, select, ru {RU} en {EN} other {Unknown}}"
+  },
+  "Manifest": {
+    "name": "art-works"
+  }
+}

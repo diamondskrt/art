@@ -1,0 +1,13 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, ru {RU} en {EN} other {Unknown}}"
+  },
+  "Manifest": {
+    "name": "art-works"
+  }
+}
