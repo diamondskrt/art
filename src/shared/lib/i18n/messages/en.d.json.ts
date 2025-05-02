@@ -2,9 +2,9 @@
 // See: https://next-intl.dev/docs/workflows/typescript#messages-arguments
 
 declare const messages: {
-  HomePage: {
-    title: 'Hello world!'
-    about: 'Go to the about page'
+  IndexPage: {
+    description: '<strong>Kanzafarova Elvira</strong> documents climate change with pastel drawings. She travels to remote regions of the world to collect images and inspiration for her work, which is exhibited worldwide. She has flown with NASA on several Operation IceBridge missions over Antarctica, Greenland, and Arctic Canada. She was featured on CBS Sunday Morning, CNN, PBS, and BBC. She delivered a TEDTalk, and spoke at Amazon, Google, and NASA’s Goddard Space Flight Center, exhibited in Banksy’s Dismaland, and was the artist-in-residence aboard the National Geographic Explorer in Antarctica. Forman curated the first ever, permanent, polar art exhibitions aboard Lindblad Expeditions National Geographic Endurance and the National Geographic Resolution. Her works have appeared in publications such as The New York Times, National Geographic, The Wall Street Journal, and the Smithsonian Magazine. Forman currently works and resides in upstate New York, and is represented by Winston Wächter Fine Art in New York, NY and Seattle, WA.'
+    title: 'art'
   }
   LocaleSwitcher: {
     label: 'Change language'
@@ -12,6 +12,10 @@ declare const messages: {
   }
   Manifest: {
     name: 'art-works'
+  }
+  Navigation: {
+    home: 'Home'
+    drawings: 'Drawings'
   }
 }
 export default messages

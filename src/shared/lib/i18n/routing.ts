@@ -5,6 +5,9 @@ const routing = defineRouting({
   defaultLocale: 'ru',
   pathnames: {
     '/': '/',
+    '/auth': '/auth',
+    '/auth/sign-in': '/auth/sign-in',
+    '/home': '/home',
   },
 })
 

@@ -1,7 +1,7 @@
 {
-  "HomePage": {
-    "title": "Привет мир!",
-    "about": "Перейти на страницу о нас"
+  "IndexPage": {
+    "description": "<strong>Канзафарова Эльвира</strong> документирует изменения климата с помощью пастельных рисунков. Она путешествует в отдаленные регионы мира, чтобы собирать изображения и вдохновение для своей работы, которая выставляется по всему миру. Она летала с NASA на нескольких миссиях Operation IceBridge над Антарктидой, Гренландией и Арктической Канадой. Она была показана на CBS Sunday Morning, CNN, PBS и BBC. Она выступила с TEDTalk и выступала в Amazon, Google и Центре космических полетов имени Годдарда NASA, выставлялась в Dismaland Бэнкси и была художником-резидентом на борту National Geographic Explorer в Антарктиде. Форман курировала первые в истории постоянные полярные художественные выставки на борту Lindblad Expeditions National Geographic Endurance и National Geographic Resolution. Ее работы появлялись в таких изданиях, как The New York Times, National Geographic, The Wall Street Journal и Smithsonian Magazine. В настоящее время Эльвира работает и проживает в северной части штата Нью-Йорк и представлена галереей Winston Wächter Fine Art в Нью-Йорке, штат Нью-Йорк, и Сиэтле, штат Вашингтон.",
+    "title": "art"
   },
   "LocaleSwitcher": {
     "label": "Сменить язык",
@@ -9,5 +9,9 @@
   },
   "Manifest": {
     "name": "art-works"
+  },
+  "Navigation": {
+    "home": "Главная",
+    "drawings": "Рисунки"
   }
 }
