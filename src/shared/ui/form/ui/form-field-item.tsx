@@ -1,5 +1,6 @@
 import { FieldValues } from 'react-hook-form'
 
+import { cn } from '~/shared/lib'
 import { Input } from '~/shared/ui'
 
 import { FormFieldItemProps } from '../model'
@@ -20,13 +21,15 @@ function FormFieldItem<T extends FieldValues>({
   placeholder,
   description,
   type = 'text',
+  className,
+  ...props
 }: FormFieldItemProps<T>) {
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem {...props} className={cn('w-full', className)}>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
             <Input type={type} placeholder={placeholder} {...field} />

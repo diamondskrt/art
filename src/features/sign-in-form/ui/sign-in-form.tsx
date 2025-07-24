@@ -28,7 +28,7 @@ function SignInForm() {
     try {
       const user = await loginUser(values)
       setKey({ key: USER_KEY, data: user })
-      router.push('/')
+      router.push('/profile/drawings')
       toast.success('Login successful')
     } catch (error) {
       removeKey(USER_KEY)

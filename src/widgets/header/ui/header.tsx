@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 
+import { Link } from '~/shared/lib'
 import { LocaleSwitcher, ThemeSwitcher, Typography } from '~/shared/ui'
 
 import { NavigationLink } from './navigation-link'
@@ -12,13 +13,13 @@ function Header() {
     <header className="py-4">
       <nav className="container flex items-center justify-between">
         <div>
-          <Typography variant="h3" className="uppercase">
-            Kanzafarova Elvira
+          <Typography asChild variant="h3" className="uppercase">
+            <Link href="/home">Kanzafarova Elvira</Link>
           </Typography>
         </div>
         <div className="flex items-center gap-4">
-          <NavigationLink href="/">{t('home')}</NavigationLink>
-          {/* <NavigationLink href="/drawings">{t('drawings')}</NavigationLink> */}
+          <NavigationLink href="/home">{t('home')}</NavigationLink>
+          <NavigationLink href="/drawings">{t('drawings')}</NavigationLink>
         </div>
         <div className="flex items-center gap-2">
           <ThemeSwitcher />

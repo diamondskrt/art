@@ -4,10 +4,10 @@ const routing = defineRouting({
   locales: ['en', 'ru'],
   defaultLocale: 'ru',
   pathnames: {
-    '/': '/',
-    '/auth': '/auth',
     '/auth/sign-in': '/auth/sign-in',
     '/home': '/home',
+    '/drawings': '/drawings',
+    '/profile/drawings': '/profile/drawings',
   },
 })
 

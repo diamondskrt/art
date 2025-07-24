@@ -1,9 +1,8 @@
 'use client'
 
-import { useSelectedLayoutSegment } from 'next/navigation'
 import { ComponentProps } from 'react'
 
-import { Link, cn } from '~/shared/lib'
+import { Link, cn, usePathname } from '~/shared/lib'
 import { Typography } from '~/shared/ui'
 
 function NavigationLink({
@@ -11,8 +10,7 @@ function NavigationLink({
   children,
   ...props
 }: ComponentProps<typeof Link>) {
-  const selectedLayoutSegment = useSelectedLayoutSegment()
-  const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : '/'
+  const pathname = usePathname()
   const isActive = pathname === href
 
   return (
@@ -20,7 +18,9 @@ function NavigationLink({
       aria-current={isActive ? 'page' : undefined}
       className={cn(
         'transition-colors',
-        isActive ? 'text-primary' : 'text-muted-foreground hover:text-primary'
+        isActive
+          ? 'text-primary transition-opacity hover:opacity-70'
+          : 'text-muted-foreground transition-opacity hover:opacity-70'
       )}
       href={href}
       {...props}
