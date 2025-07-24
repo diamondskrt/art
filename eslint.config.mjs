@@ -1,13 +1,13 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import { FlatCompat } from '@eslint/eslintrc'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-});
+})
 
 const eslintConfig = [
   ...compat.config({
@@ -16,9 +16,15 @@ const eslintConfig = [
       'next/typescript',
       'plugin:import/recommended',
       'plugin:import/typescript',
+      'plugin:@typescript-eslint/recommended',
+      'plugin:react/recommended',
+      'plugin:react-hooks/recommended',
     ],
-    plugins: ['prettier'],
+    plugins: ['prettier', '@typescript-eslint', 'react', 'react-hooks'],
     settings: {
+      react: {
+        version: 'detect',
+      },
       'import/resolver': {
         typescript: {
           alwaysTryTypes: true,
@@ -27,8 +33,25 @@ const eslintConfig = [
       },
     },
     rules: {
+      // Prettier
       'prettier/prettier': 'error',
-      '@typescript-eslint/no-unused-vars': 'off',
+
+      // TypeScript
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_' },
+      ],
+      '@typescript-eslint/explicit-function-return-type': 'off',
+
+      // React
+      'react/react-in-jsx-scope': 'off', // Next.js doesn't need React in scope
+      'react/prop-types': 'off',
+
+      // React Hooks
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+
+      // Import
       'import/order': [
         'error',
         {
@@ -71,8 +94,12 @@ const eslintConfig = [
           ],
         },
       ],
+
+      // Standard rules
+      'no-console': ['error', { allow: ['warn', 'error'] }],
+      'no-debugger': 'error',
     },
   }),
-];
+]
 
-export default eslintConfig;
+export default eslintConfig

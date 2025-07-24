@@ -61,7 +61,7 @@
   --accent-foreground: oklch(0.21 0.006 285.885);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
+  --input: oklch(0.8 0.004 286.32);
   --ring: oklch(0.623 0.214 259.815);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -86,7 +86,7 @@
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.546 0.245 262.881);
-  --primary-foreground: oklch(0.379 0.146 265.522);
+  --primary-foreground: oklch(0.97 0.014 254.604);
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.274 0.006 286.033);
@@ -125,21 +125,28 @@
   body {
     @apply bg-background text-foreground;
   }
-  h1 {
+  h1,
+  .h1 {
     @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
   }
-  h2 {
+  h2,
+  .h2 {
     @apply scroll-m-20 text-3xl font-semibold tracking-tight;
   }
-  h3 {
+  h3,
+  .h3 {
     @apply scroll-m-20 text-2xl font-semibold tracking-tight;
   }
-  h4 {
+  h4,
+  .h4 {
     @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+  a {
+    @apply cursor-pointer;
   }
   p,
   a {
-    @apply leading-7;
+    @apply text-base leading-5;
   }
   small {
     @apply text-sm leading-none;

@@ -25,14 +25,15 @@ type FormProps<T extends FieldValues> = Omit<
     onSubmit: (values: T) => void
   }
 
-type FormFieldItemProps<T extends FieldValues> = {
-  control: Control<T>
-  name: Path<T>
-  label?: string
-  placeholder?: string
-  description?: string
-  type?: 'text' | 'email' | 'password' | 'number'
-}
+type FormFieldItemProps<T extends FieldValues> =
+  React.HTMLAttributes<HTMLDivElement> & {
+    control: Control<T>
+    name: Path<T>
+    label?: string
+    placeholder?: string
+    description?: string
+    type?: 'text' | 'email' | 'password' | 'number'
+  }
 
 export type {
   FormItemContextValue,

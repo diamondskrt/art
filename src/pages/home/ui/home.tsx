@@ -3,11 +3,16 @@ import { Locale, useTranslations } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import { use } from 'react'
 
-import { Typography } from '~/shared/ui'
-import { AppLayout } from '~/widgets/app-layout'
+import { Link } from '~/shared/lib'
+import { LocaleParams } from '~/shared/model'
+import { Button, Typography } from '~/shared/ui'
+import { DrawingsGallery } from '~/widgets/drawings-gallery'
+import { AppLayout } from '~/widgets/layouts'
+
+import { ContactForm } from './contact-form'
 
 type Props = {
-  params: Promise<{ locale: Locale }>
+  params: LocaleParams
 }
 
 export function Home({ params }: Props) {
@@ -35,7 +40,7 @@ export function Home({ params }: Props) {
           <Typography variant="h4" className="mb-4 uppercase">
             BIO and CV
           </Typography>
-          <Typography variant="small">
+          <Typography variant="p">
             {t.rich('description', {
               strong: (chunks) => (
                 <Typography variant="strong">{chunks}</Typography>
@@ -49,6 +54,28 @@ export function Home({ params }: Props) {
           <Typography variant="h4" className="mb-4 uppercase">
             Drawings
           </Typography>
+          <DrawingsGallery />
+          <Button variant="secondary" asChild>
+            <Link href="/drawings">View all</Link>
+          </Button>
+        </div>
+      </div>
+      <div className="section">
+        <div className="container">
+          <div className="mb-4">
+            <Typography variant="h4" className="mb-4 uppercase">
+              Contacts
+            </Typography>
+            <Typography variant="p">
+              For general enquiries, images of available works, and a price
+              list, email my studio manager at xan@zariaforman.com.
+            </Typography>
+            <Typography variant="p">
+              Limited edition prints of my work are available exclusively at
+              ArtStar.com.
+            </Typography>
+          </div>
+          <ContactForm className="w-[60%]" />
         </div>
       </div>
     </AppLayout>

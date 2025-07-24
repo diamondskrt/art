@@ -5,7 +5,7 @@ import { useMemo } from 'react'
 import { toast } from 'sonner'
 
 import { useUser, logoutUser, USER_KEY } from '~/entities/user'
-import { removeKey, useRouter } from '~/shared/lib'
+import { Link, removeKey, useRouter } from '~/shared/lib'
 import {
   Button,
   DropdownMenu,
@@ -45,9 +45,11 @@ export function UserMenu() {
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <UserIcon />
-            <span>Profile</span>
+          <DropdownMenuItem asChild>
+            <Link href="/profile/drawings">
+              <UserIcon />
+              <span>Profile</span>
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <SettingsIcon />

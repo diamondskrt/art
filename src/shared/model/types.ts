@@ -1,3 +1,7 @@
+import { Locale } from 'next-intl'
+
 type Nullable<T> = T | null
 
-export type { Nullable }
+type LocaleParams = Promise<{ locale: Locale }>
+
+export type { Nullable, LocaleParams }
