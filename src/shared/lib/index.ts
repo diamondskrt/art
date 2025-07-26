@@ -1,4 +1,4 @@
-export { cn } from './utils'
+export { useAuth, AuthContext, type AuthContextType } from './auth'
 export {
   usePathname,
   useRouter,
@@ -12,7 +12,9 @@ export {
   storage,
   account,
   DATABASE_ID,
-  COLLECTION_ID,
+  DRAWINGS_COLLECTION_ID,
+  IMAGES_COLLECTION_ID,
+  BUCKET_ID,
   PROJECT_ID,
   API_URL,
 } from './appwrite'

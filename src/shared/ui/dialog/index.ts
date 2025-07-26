@@ -10,4 +10,5 @@ export {
   DialogTitle,
   DialogTitleHidden,
   DialogTrigger,
+  Modal,
 } from './ui'

@@ -1,6 +1,6 @@
 import get from 'lodash-es/get'
 
-import { cn } from '~/shared/lib'
+import { cn } from '~/shared/utils'
 
 import { SelectProps } from '../model'
 

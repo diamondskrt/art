@@ -6,7 +6,7 @@ export default function ProfilePage() {
   const locale = useLocale()
 
   redirect({
-    href: '/profile/drawings',
+    href: '/drawings/list',
     locale,
   })
 }

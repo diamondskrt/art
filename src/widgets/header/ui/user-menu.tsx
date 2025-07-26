@@ -1,11 +1,10 @@
 'use client'
 
-import { LogOutIcon, SettingsIcon, UserIcon } from 'lucide-react'
+import { LogOutIcon, UserIcon } from 'lucide-react'
 import { useMemo } from 'react'
 import { toast } from 'sonner'
 
-import { useUser, logoutUser, USER_KEY } from '~/entities/user'
-import { Link, removeKey, useRouter } from '~/shared/lib'
+import { Link, useAuth, useRouter } from '~/shared/lib'
 import {
   Button,
   DropdownMenu,
@@ -18,7 +17,7 @@ import {
 } from '~/shared/ui'
 
 export function UserMenu() {
-  const { user } = useUser()
+  const { user, logout } = useAuth()
   const userShortName = useMemo(() => {
     return user?.name.charAt(0).toUpperCase()
   }, [user])
@@ -27,8 +26,7 @@ export function UserMenu() {
 
   const onLogout = async () => {
     try {
-      await logoutUser()
-      removeKey(USER_KEY)
+      await logout()
       router.push('/auth/sign-in')
       toast.success('Logout successful')
     } catch (error) {
@@ -46,14 +44,10 @@ export function UserMenu() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Link href="/profile/drawings">
+            <Link href="/drawings/list">
               <UserIcon />
               <span>Profile</span>
             </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <SettingsIcon />
-            <span>Settings</span>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={onLogout}>
             <LogOutIcon />

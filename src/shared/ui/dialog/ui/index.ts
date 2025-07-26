@@ -10,4 +10,5 @@ export {
   DialogTitle,
   DialogTitleHidden,
   DialogTrigger,
-} from './dialog'
+} from './dialog-items'
+export { Modal } from './modal'

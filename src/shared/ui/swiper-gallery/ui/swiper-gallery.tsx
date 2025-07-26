@@ -10,6 +10,7 @@ import {
   Button,
   Dialog,
   DialogContent,
+  DialogHeader,
   DialogTitleHidden,
   Typography,
 } from '~/shared/ui'
@@ -45,7 +46,9 @@ export function SwiperGallery({
   return (
     <Dialog open={open} onOpenChange={onOpenChangeAction}>
       <DialogContent aria-describedby={undefined} className="max-w-[80%]">
-        <DialogTitleHidden />
+        <DialogHeader closeButtonClassName="text-white -top-10">
+          <DialogTitleHidden />
+        </DialogHeader>
         <div className="flex items-center justify-between gap-4">
           <Button
             variant="ghost"

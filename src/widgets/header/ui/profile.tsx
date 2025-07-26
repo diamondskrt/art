@@ -2,14 +2,13 @@
 
 import { UserIcon } from 'lucide-react'
 
-import { useUser } from '~/entities/user'
-import { Link } from '~/shared/lib'
+import { Link, useAuth } from '~/shared/lib'
 import { Button } from '~/shared/ui'
 
 import { UserMenu } from './user-menu'
 
 function Profile() {
-  const { user } = useUser()
+  const { user } = useAuth()
 
   return user ? (
     <UserMenu />

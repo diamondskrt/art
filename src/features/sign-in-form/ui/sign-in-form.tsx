@@ -4,34 +4,28 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-import {
-  loginUser,
-  LoginPayload,
-  loginFormSchema,
-  USER_KEY,
-} from '~/entities/user'
-import { setKey, removeKey, Link, useRouter } from '~/shared/lib'
+import { LoginPayload, loginFormSchema } from '~/entities/user'
+import { Link, useRouter, useAuth } from '~/shared/lib'
 import { Button, Typography, Form, FormFieldItem } from '~/shared/ui'
+
+import { defaultValues } from '../config'
 
 function SignInForm() {
   const router = useRouter()
 
   const form = useForm<LoginPayload>({
     resolver: zodResolver(loginFormSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
+    defaultValues,
   })
+
+  const { login, isLoading } = useAuth()
 
   const onSubmit = async (values: LoginPayload) => {
     try {
-      const user = await loginUser(values)
-      setKey({ key: USER_KEY, data: user })
-      router.push('/profile/drawings')
+      await login(values)
+      router.push('/drawings/list')
       toast.success('Login successful')
     } catch (error) {
-      removeKey(USER_KEY)
       toast.error((error as Error).message)
     }
   }
@@ -42,19 +36,19 @@ function SignInForm() {
         Sign in
       </Typography>
 
-      <FormFieldItem<LoginPayload>
+      <FormFieldItem
         control={form.control}
         name="email"
         placeholder="Enter your username"
       />
-      <FormFieldItem<LoginPayload>
+      <FormFieldItem
         control={form.control}
         name="password"
         type="password"
         placeholder="Enter your password"
       />
       <div className="flex items-center justify-between">
-        <Button type="submit" className="cursor-pointer">
+        <Button type="submit" className="cursor-pointer" disabled={isLoading}>
           Sign in
         </Button>
         <Button variant="link" asChild>

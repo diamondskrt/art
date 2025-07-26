@@ -1,15 +1,14 @@
 import Image from 'next/image'
-import { Locale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import { use } from 'react'
 
+import { ContactForm } from '~/features/contact-form'
 import { Link } from '~/shared/lib'
 import { LocaleParams } from '~/shared/model'
 import { Button, Typography } from '~/shared/ui'
-import { DrawingsGallery } from '~/widgets/drawings-gallery'
+import { DrawingSlidesGallery } from '~/widgets/drawing-slides-gallery'
 import { AppLayout } from '~/widgets/layouts'
-
-import { ContactForm } from './contact-form'
 
 type Props = {
   params: LocaleParams
@@ -54,9 +53,9 @@ export function Home({ params }: Props) {
           <Typography variant="h4" className="mb-4 uppercase">
             Drawings
           </Typography>
-          <DrawingsGallery />
-          <Button variant="secondary" asChild>
-            <Link href="/drawings">View all</Link>
+          <DrawingSlidesGallery />
+          <Button variant="secondary" asChild className="mt-4">
+            <Link href="/drawings/list">View all</Link>
           </Button>
         </div>
       </div>

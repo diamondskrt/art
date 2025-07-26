@@ -2,8 +2,9 @@
 
 import { ComponentProps } from 'react'
 
-import { Link, cn, usePathname } from '~/shared/lib'
+import { Link, usePathname } from '~/shared/lib'
 import { Typography } from '~/shared/ui'
+import { cn } from '~/shared/utils'
 
 function NavigationLink({
   href,
