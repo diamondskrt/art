@@ -1,7 +1,8 @@
 import { FieldValues } from 'react-hook-form'
+import { NumericFormat } from 'react-number-format'
 
-import { cn } from '~/shared/lib'
-import { Input } from '~/shared/ui'
+import { Input, Uploader } from '~/shared/ui'
+import { cn } from '~/shared/utils'
 
 import { FormFieldItemProps } from '../model'
 
@@ -28,11 +29,35 @@ function FormFieldItem<T extends FieldValues>({
     <FormField
       control={control}
       name={name}
-      render={({ field }) => (
+      render={({ field, fieldState }) => (
         <FormItem {...props} className={cn('w-full', className)}>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <Input type={type} placeholder={placeholder} {...field} />
+            {type === 'file' ? (
+              <Uploader
+                files={field.value as File[]}
+                onUploadAction={(files) => {
+                  field.onChange(files)
+                }}
+              />
+            ) : type === 'number' ? (
+              <NumericFormat
+                value={field.value}
+                customInput={Input}
+                thousandSeparator=" "
+                suffix=" $"
+                allowNegative={false}
+                allowLeadingZeros={false}
+                placeholder={placeholder}
+                onValueChange={({ floatValue }) => {
+                  field.onChange(floatValue)
+                }}
+                isAllowed={({ floatValue }) => (floatValue ?? 0) <= 100000}
+                aria-invalid={Boolean(fieldState.error)}
+              />
+            ) : (
+              <Input type={type} placeholder={placeholder} {...field} />
+            )}
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />

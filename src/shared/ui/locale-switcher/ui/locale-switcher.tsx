@@ -3,8 +3,9 @@
 import { useLocale, useTranslations, Locale } from 'next-intl'
 import { useTransition } from 'react'
 
-import { usePathname, useRouter, routing, cn } from '~/shared/lib'
+import { usePathname, useRouter, routing } from '~/shared/lib'
 import { Select } from '~/shared/ui'
+import { cn } from '~/shared/utils'
 
 function LocaleSwitcher({ className }: { className?: string }) {
   const t = useTranslations('LocaleSwitcher')
@@ -17,7 +18,8 @@ function LocaleSwitcher({ className }: { className?: string }) {
     const nextLocale = value as Locale
 
     startTransition(() => {
-      router.replace({ pathname }, { locale: nextLocale })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      router.replace({ pathname: pathname as any }, { locale: nextLocale })
     })
   }
 
@@ -25,9 +27,9 @@ function LocaleSwitcher({ className }: { className?: string }) {
     <Select
       defaultValue={locale as string}
       label={t('label')}
-      options={routing.locales.map((cur) => ({
-        label: t('locale', { locale: cur }),
-        value: cur,
+      options={routing.locales.map((locale) => ({
+        label: t('locale', { locale }),
+        value: locale,
       }))}
       disabled={isPending}
       triggerClassName={cn(className)}

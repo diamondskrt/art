@@ -3,7 +3,6 @@
 import { useState, useCallback, useEffect, useMemo } from 'react'
 
 import { useIsMobile } from '~/shared/hooks'
-import { cn } from '~/shared/lib'
 import {
   SIDEBAR_COOKIE_NAME,
   SIDEBAR_COOKIE_MAX_AGE,
@@ -14,6 +13,7 @@ import {
   SidebarContext,
   TooltipProvider,
 } from '~/shared/ui'
+import { cn } from '~/shared/utils'
 
 export function SidebarProvider({
   defaultOpen = true,

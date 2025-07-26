@@ -6,7 +6,6 @@ import { PanelLeftIcon } from 'lucide-react'
 import * as React from 'react'
 
 import { useIsMobile } from '~/shared/hooks/use-mobile'
-import { cn } from '~/shared/lib'
 import {
   Button,
   Input,
@@ -22,6 +21,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '~/shared/ui'
+import { cn } from '~/shared/utils'
 
 import {
   SIDEBAR_COOKIE_NAME,

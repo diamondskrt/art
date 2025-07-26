@@ -11,4 +11,9 @@ const loginFormSchema = z.object({
   }),
 })
 
-export { loginFormSchema, USER_KEY }
+const ROLES = {
+  ADMIN: 'admin',
+  USER: 'user',
+}
+
+export { loginFormSchema, USER_KEY, ROLES }

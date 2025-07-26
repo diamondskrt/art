@@ -32,7 +32,7 @@ type FormFieldItemProps<T extends FieldValues> =
     label?: string
     placeholder?: string
     description?: string
-    type?: 'text' | 'email' | 'password' | 'number'
+    type?: 'text' | 'email' | 'password' | 'number' | 'file'
   }
 
 export type {

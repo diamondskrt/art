@@ -1,7 +1,11 @@
 import { Client, Account, Databases, Storage } from 'appwrite'
 
 const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID as string
-const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID as string
+const BUCKET_ID = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID as string
+const DRAWINGS_COLLECTION_ID = process.env
+  .NEXT_PUBLIC_APPWRITE_DRAWINGS_COLLECTION_ID as string
+const IMAGES_COLLECTION_ID = process.env
+  .NEXT_PUBLIC_APPWRITE_IMAGES_COLLECTION_ID as string
 const PROJECT_ID = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID as string
 const API_URL = process.env.NEXT_PUBLIC_APPWRITE_API as string
 
@@ -16,7 +20,9 @@ export {
   storage,
   account,
   DATABASE_ID,
-  COLLECTION_ID,
+  BUCKET_ID,
+  DRAWINGS_COLLECTION_ID,
+  IMAGES_COLLECTION_ID,
   PROJECT_ID,
   API_URL,
 }

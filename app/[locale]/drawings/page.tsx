@@ -1,3 +1,12 @@
-import { Drawings } from '~/pages/drawings'
+import { useLocale } from 'next-intl'
 
-export default Drawings
+import { redirect } from '~/shared/lib'
+
+export default function DrawingsPage() {
+  const locale = useLocale()
+
+  redirect({
+    href: '/drawings/list',
+    locale,
+  })
+}

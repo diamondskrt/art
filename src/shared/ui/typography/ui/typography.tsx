@@ -1,6 +1,6 @@
 import { Slot } from '@radix-ui/react-slot'
 
-import { cn } from '~/shared/lib'
+import { cn } from '~/shared/utils'
 
 import { TypographyProps } from '../model'
 

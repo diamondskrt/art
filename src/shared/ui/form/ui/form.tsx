@@ -1,6 +1,6 @@
 import { FieldValues, FormProvider } from 'react-hook-form'
 
-import { cn } from '~/shared/lib'
+import { cn } from '~/shared/utils'
 
 import { FormProps } from '../model'
 

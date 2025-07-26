@@ -1,5 +1,6 @@
-import { Calendar, Home, Inbox, Search, Settings } from 'lucide-react'
+import { Home, Inbox, Settings } from 'lucide-react'
 
+import { Link, routing } from '~/shared/lib'
 import {
   Sidebar,
   SidebarContent,
@@ -11,32 +12,22 @@ import {
   SidebarMenuItem,
 } from '~/shared/ui'
 
-// Sidebar items
-const items = [
+type MenuItem = {
+  title: string
+  url: keyof (typeof routing)['pathnames']
+  icon: React.ElementType
+}
+
+const items: MenuItem[] = [
   {
-    title: 'Home',
-    url: '#',
+    title: 'На главную',
+    url: '/home',
     icon: Home,
   },
   {
-    title: 'Inbox',
-    url: '#',
+    title: 'Мои работы',
+    url: '/drawings/list',
     icon: Inbox,
-  },
-  {
-    title: 'Calendar',
-    url: '#',
-    icon: Calendar,
-  },
-  {
-    title: 'Search',
-    url: '#',
-    icon: Search,
-  },
-  {
-    title: 'Settings',
-    url: '#',
-    icon: Settings,
   },
 ]
 
@@ -45,17 +36,18 @@ export function ProfileSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>Меню</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                  <Link href={item.url as any}>
+                    <SidebarMenuButton className="cursor-pointer">
                       <item.icon />
                       <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
+                    </SidebarMenuButton>
+                  </Link>
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>

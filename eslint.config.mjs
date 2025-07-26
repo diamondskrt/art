@@ -41,7 +41,6 @@ const eslintConfig = [
         'warn',
         { argsIgnorePattern: '^_' },
       ],
-      '@typescript-eslint/explicit-function-return-type': 'off',
 
       // React
       'react/react-in-jsx-scope': 'off', // Next.js doesn't need React in scope

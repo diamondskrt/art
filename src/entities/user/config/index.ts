@@ -1,1 +1,1 @@
-export { loginFormSchema, USER_KEY } from './constants'
+export { loginFormSchema, USER_KEY, ROLES } from './constants'

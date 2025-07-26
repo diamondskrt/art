@@ -1,4 +1,5 @@
 export { Button } from './button'
+export { Breadcrumbs, type BreadcrumbItem } from './breadcrumb'
 export {
   DropdownMenu,
   DropdownMenuPortal,
@@ -16,11 +17,13 @@ export { ThemeSwitcher } from './theme-switcher'
 export { Select } from './select'
 export { LocaleSwitcher } from './locale-switcher'
 export { Typography } from './typography'
+export { Uploader } from './uploader'
 export { Sonner } from './sonner'
 export { Label } from './label'
 export { Input } from './input'
 export { Form, FormFieldItem } from './form'
 export { SwiperGallery } from './swiper-gallery'
+export { Swiper } from './swiper'
 export {
   Dialog,
   DialogClose,
@@ -33,6 +36,7 @@ export {
   DialogTitle,
   DialogTitleHidden,
   DialogTrigger,
+  Modal,
 } from './dialog'
 export {
   NavigationMenu,
