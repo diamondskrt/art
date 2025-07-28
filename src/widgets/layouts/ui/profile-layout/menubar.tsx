@@ -1,4 +1,5 @@
-import { Home, Inbox, Settings } from 'lucide-react'
+import { Home, Inbox } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 import { Link, routing } from '~/shared/lib'
 import {
@@ -18,25 +19,27 @@ type MenuItem = {
   icon: React.ElementType
 }
 
-const items: MenuItem[] = [
-  {
-    title: 'На главную',
-    url: '/home',
-    icon: Home,
-  },
-  {
-    title: 'Мои работы',
-    url: '/drawings/list',
-    icon: Inbox,
-  },
-]
-
 export function ProfileSidebar() {
+  const t = useTranslations('ProfilePage.menu')
+
+  const items: MenuItem[] = [
+    {
+      title: t('home'),
+      url: '/home',
+      icon: Home,
+    },
+    {
+      title: t('drawings'),
+      url: '/drawings/list',
+      icon: Inbox,
+    },
+  ]
+
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Меню</SidebarGroupLabel>
+          <SidebarGroupLabel>{t('title')}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (

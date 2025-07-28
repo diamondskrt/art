@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import { use } from 'react'
 
@@ -17,9 +18,11 @@ export function DrawingList({ params }: Props) {
 
   setRequestLocale(locale)
 
+  const t = useTranslations('ListDrawingsPage')
+
   const breadcrumbItems: BreadcrumbItem[] = [
-    { label: 'Home', href: '/home' },
-    { label: 'Drawings', href: '/drawings/list' },
+    { label: t('breadcrumbs.home'), href: '/home' },
+    { label: t('breadcrumbs.drawings'), href: '/drawings/list' },
   ]
 
   return (

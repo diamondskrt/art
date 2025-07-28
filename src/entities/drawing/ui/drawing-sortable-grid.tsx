@@ -9,20 +9,22 @@ import {
 import { useEffect, useState } from 'react'
 
 import { MAX_FILES } from '~/shared/config'
-import { Image } from '~/shared/model'
+import { Uploader } from '~/shared/ui'
 
-import { SortableImageItem } from './sortable-image-item'
+import { DrawingImage } from '../model'
+
+import { DrawingSortableImageItem } from './drawing-sortable-image-item'
 
 type SortableGridProps = {
-  initialImages: Image[]
-  onChangeAction?: (items: Image[]) => void
+  initialImages: DrawingImage[]
+  onChangeAction?: (items: DrawingImage[]) => void
 }
 
-export function SortableGrid({
+export function DrawingSortableGrid({
   initialImages,
   onChangeAction,
 }: SortableGridProps) {
-  const [items, setItems] = useState<Image[]>(initialImages)
+  const [items, setItems] = useState<DrawingImage[]>(initialImages)
   const diff = MAX_FILES - items.length
 
   const handleDragEnd = (event: DragEndEvent) => {
@@ -79,15 +81,18 @@ export function SortableGrid({
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {items.map((item) => (
-            <SortableImageItem
+            <DrawingSortableImageItem
               key={item.$id}
               image={item}
-              onUploadAction={handleUpload}
               onDeleteAction={handleDelete}
             />
           ))}
           {diff > 0 && (
-            <SortableImageItem onUploadAction={handleUpload} maxFiles={diff} />
+            <div className="relative aspect-square border-dashed border border-gray-300 rounded overflow-hidden">
+              <div className="flex items-center justify-center h-full">
+                <Uploader maxFiles={diff} onUploadAction={handleUpload} />
+              </div>
+            </div>
           )}
         </div>
       </SortableContext>

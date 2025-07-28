@@ -2,10 +2,15 @@
 
 import { PencilIcon, TrashIcon } from 'lucide-react'
 import { useParams } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 
-import { useDeleteDrawing, useGetDrawing } from '~/entities/drawing'
-import { DrawingWithSwiper, DrawingSkeleton } from '~/features/drawing'
+import {
+  useDeleteDrawing,
+  useGetDrawing,
+  DrawingWithSwiper,
+  DrawingSkeleton,
+} from '~/entities/drawing'
 import { Link, useRouter } from '~/shared/lib'
 import { BreadcrumbItem, Breadcrumbs, Button } from '~/shared/ui'
 
@@ -13,6 +18,8 @@ import { DeletionModal } from './deletion-modal'
 
 export function DrawingShowContainer() {
   const params = useParams()
+
+  const t = useTranslations('ShowDrawingPage')
 
   const id = params?.id
 
@@ -25,8 +32,8 @@ export function DrawingShowContainer() {
   const { mutate: deleteDrawing } = useDeleteDrawing(id as string)
 
   const breadcrumbItems: BreadcrumbItem[] = [
-    { label: 'Home', href: '/home' },
-    { label: 'Drawings', href: '/drawings/list' },
+    { label: t('breadcrumbs.home'), href: '/home' },
+    { label: t('breadcrumbs.drawings'), href: '/drawings/list' },
     { label: drawingId },
   ]
 
@@ -54,14 +61,14 @@ export function DrawingShowContainer() {
             >
               <Button variant="outline" className="cursor-pointer">
                 <PencilIcon className="w-4 h-4" />
-                Edit
+                {t('actions.edit')}
               </Button>
             </Link>
           )}
           <DeletionModal onDelete={handleDelete}>
             <Button variant="destructive" className="cursor-pointer">
               <TrashIcon className="w-4 h-4" />
-              Delete
+              {t('actions.delete')}
             </Button>
           </DeletionModal>
         </div>

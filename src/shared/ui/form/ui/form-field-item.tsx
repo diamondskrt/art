@@ -1,7 +1,7 @@
 import { FieldValues } from 'react-hook-form'
 import { NumericFormat } from 'react-number-format'
 
-import { Input, SortableGrid } from '~/shared/ui'
+import { Input } from '~/shared/ui'
 import { cn } from '~/shared/utils'
 
 import { FormFieldItemProps } from '../model'
@@ -22,6 +22,7 @@ function FormFieldItem<T extends FieldValues>({
   placeholder,
   description,
   type = 'text',
+  render,
   className,
   ...props
 }: FormFieldItemProps<T>) {
@@ -33,13 +34,8 @@ function FormFieldItem<T extends FieldValues>({
         <FormItem {...props} className={cn('w-full', className)}>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            {type === 'file' ? (
-              <SortableGrid
-                initialImages={field.value}
-                onChangeAction={(items) => {
-                  field.onChange(items)
-                }}
-              />
+            {render ? (
+              render(field)
             ) : type === 'number' ? (
               <NumericFormat
                 value={field.value}

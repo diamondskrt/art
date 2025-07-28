@@ -40,7 +40,7 @@ export function Home({ params }: Props) {
             BIO and CV
           </Typography>
           <Typography variant="p">
-            {t.rich('description', {
+            {t.rich('bio', {
               strong: (chunks) => (
                 <Typography variant="strong">{chunks}</Typography>
               ),
@@ -51,11 +51,11 @@ export function Home({ params }: Props) {
       <div className="section">
         <div className="container">
           <Typography variant="h4" className="mb-4 uppercase">
-            Drawings
+            {t('drawings.title')}
           </Typography>
           <DrawingSlidesGallery />
           <Button variant="secondary" asChild className="mt-4">
-            <Link href="/drawings/list">View all</Link>
+            <Link href="/drawings/list">{t('drawings.viewAllBtn')}</Link>
           </Button>
         </div>
       </div>
@@ -63,16 +63,10 @@ export function Home({ params }: Props) {
         <div className="container">
           <div className="mb-4">
             <Typography variant="h4" className="mb-4 uppercase">
-              Contacts
+              {t('contacts.title')}
             </Typography>
-            <Typography variant="p">
-              For general enquiries, images of available works, and a price
-              list, email my studio manager at xan@zariaforman.com.
-            </Typography>
-            <Typography variant="p">
-              Limited edition prints of my work are available exclusively at
-              ArtStar.com.
-            </Typography>
+            <Typography variant="p">{t('contacts.text1')}</Typography>
+            <Typography variant="p">{t('contacts.text2')}</Typography>
           </div>
           <ContactForm className="w-[60%]" />
         </div>

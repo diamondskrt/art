@@ -1,6 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
@@ -9,12 +10,16 @@ import {
   useUpdateDrawing,
   updateDrawingFormSchema,
   UpdateDrawingPayload,
+  DrawingImage,
+  DrawingSortableGrid,
 } from '~/entities/drawing'
 import { useRouter } from '~/shared/lib'
 import { Button, Form, FormFieldItem } from '~/shared/ui'
 
 export function UpdateDrawingForm({ drawing }: { drawing: Drawing }) {
   const router = useRouter()
+
+  const t = useTranslations('EditDrawingPage.form')
 
   const { mutate: updateDrawing, isPending } = useUpdateDrawing()
 
@@ -48,29 +53,35 @@ export function UpdateDrawingForm({ drawing }: { drawing: Drawing }) {
         <FormFieldItem
           control={form.control}
           name="images"
-          type="file"
-          description="*Drag and drop images to reorder them, max 5 images"
+          render={(field) => (
+            <DrawingSortableGrid
+              initialImages={field.value as DrawingImage[]}
+              onChangeAction={(items) => {
+                field.onChange(items)
+              }}
+            />
+          )}
         />
         <div className="w-full md:w-1/3 lg:w-[350px] space-y-4">
           <FormFieldItem
             control={form.control}
             name="title"
-            placeholder="Enter title"
+            placeholder={t('title')}
           />
           <FormFieldItem
             control={form.control}
             name="description"
-            placeholder="Enter description"
+            placeholder={t('description')}
           />
           <FormFieldItem
             control={form.control}
             name="price"
-            placeholder="Enter price"
+            placeholder={t('price')}
             type="number"
-            description="Price must be up to 100 000 $"
+            description={t('priceDescription')}
           />
           <Button type="submit" disabled={isPending} className="cursor-pointer">
-            Submit
+            {t('submitBtn')}
           </Button>
         </div>
       </Form>

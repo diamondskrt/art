@@ -1,3 +1,5 @@
+'use client'
+
 import { FieldValues, FormProvider } from 'react-hook-form'
 
 import { cn } from '~/shared/utils'

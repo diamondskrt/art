@@ -1,6 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 
 import { Form, FormFieldItem, Button } from '~/shared/ui'
@@ -15,6 +16,8 @@ export function ContactForm({ className, ...props }: ContactFormProps) {
     defaultValues,
   })
 
+  const t = useTranslations('IndexPage.contacts')
+
   return (
     <Form
       {...form}
@@ -22,15 +25,23 @@ export function ContactForm({ className, ...props }: ContactFormProps) {
       className={cn('flex gap-4', className)}
       onSubmit={() => {}}
     >
-      <FormFieldItem control={form.control} name="name" placeholder="Name" />
-      <FormFieldItem control={form.control} name="email" placeholder="Email" />
+      <FormFieldItem
+        control={form.control}
+        name="name"
+        placeholder={t('form.name')}
+      />
+      <FormFieldItem
+        control={form.control}
+        name="email"
+        placeholder={t('form.email')}
+      />
       <Button
         type="submit"
         variant="rounded"
         size="lg"
         className="cursor-pointer"
       >
-        Subscribe
+        {t('form.subscribeBtn')}
       </Button>
     </Form>
   )

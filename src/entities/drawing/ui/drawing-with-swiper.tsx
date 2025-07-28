@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl'
+
 import type { Drawing } from '~/entities/drawing'
 import { Typography } from '~/shared/ui'
 import { formatPrice, cn } from '~/shared/utils'
@@ -11,6 +13,8 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 export function DrawingWithSwiper({ drawing, className }: Props) {
   const { title, description, price, images } = drawing
 
+  const t = useTranslations('ShowDrawingPage.drawing')
+
   return (
     <div
       className={cn(
@@ -23,9 +27,15 @@ export function DrawingWithSwiper({ drawing, className }: Props) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <Typography variant="h3">Title: {title}</Typography>
-        <Typography variant="p">Description: {description}</Typography>
-        <Typography variant="h4">Price: {formatPrice(price)}</Typography>
+        <Typography variant="h3">
+          {t('title')}: {title}
+        </Typography>
+        <Typography variant="p">
+          {t('description')}: {description}
+        </Typography>
+        <Typography variant="h4">
+          {t('price')}: {formatPrice(price)}
+        </Typography>
       </div>
     </div>
   )

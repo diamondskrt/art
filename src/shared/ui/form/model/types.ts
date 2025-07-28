@@ -4,6 +4,7 @@ import {
   Path,
   Control,
   FormProviderProps,
+  ControllerRenderProps,
 } from 'react-hook-form'
 
 type FormItemContextValue = {
@@ -32,7 +33,8 @@ type FormFieldItemProps<T extends FieldValues> =
     label?: string
     placeholder?: string
     description?: string
-    type?: 'text' | 'email' | 'password' | 'number' | 'file'
+    type?: 'text' | 'email' | 'password' | 'number'
+    render?: (field: ControllerRenderProps<T, Path<T>>) => React.ReactNode
   }
 
 export type {

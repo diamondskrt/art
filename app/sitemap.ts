@@ -6,7 +6,13 @@ import { getPathname, routing } from '~/shared/lib'
 import { host } from '../config'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...getEntries('/home')]
+  return [
+    ...getEntries('/home'),
+    ...getEntries('/profile'),
+    ...getEntries('/drawings/list'),
+    ...getEntries('/drawings/add'),
+    ...getEntries('/settings'),
+  ]
 }
 
 type Href = Parameters<typeof getPathname>[0]['href']

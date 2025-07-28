@@ -1,4 +1,5 @@
 export { Button } from './button'
+export { Badge } from './badge'
 export { Breadcrumbs, type BreadcrumbItem } from './breadcrumb'
 export {
   DropdownMenu,
@@ -97,4 +98,3 @@ export {
   SidebarContext,
   type SidebarContextProps,
 } from './sidebar'
-export { SortableGrid } from './sortable'
