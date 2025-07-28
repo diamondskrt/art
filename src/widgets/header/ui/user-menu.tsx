@@ -44,7 +44,7 @@ export function UserMenu() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Link href="/drawings/list">
+            <Link href="/profile">
               <UserIcon />
               <span>Profile</span>
             </Link>

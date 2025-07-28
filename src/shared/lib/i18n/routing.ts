@@ -11,6 +11,7 @@ const routing = defineRouting({
     '/drawings/[id]': '/drawings/[id]',
     '/drawings/[id]/edit': '/drawings/[id]/edit',
     '/settings': '/settings',
+    '/profile': '/profile',
   },
 })
 

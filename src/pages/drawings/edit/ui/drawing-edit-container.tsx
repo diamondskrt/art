@@ -1,6 +1,7 @@
 'use client'
 
 import { useParams } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 
 import { useGetDrawing } from '~/entities/drawing'
 import { UpdateDrawingForm } from '~/features/update-drawing-form'
@@ -11,13 +12,15 @@ export function DrawingEditContainer() {
 
   const id = params?.id
 
+  const t = useTranslations('EditDrawingPage')
+
   const { data: drawing, isLoading } = useGetDrawing(id as string)
 
   const drawingId = drawing?.$id || ''
 
   const breadcrumbItems: BreadcrumbItem[] = [
-    { label: 'Home', href: '/home' },
-    { label: 'Drawings', href: '/drawings/list' },
+    { label: t('breadcrumbs.home'), href: '/home' },
+    { label: t('breadcrumbs.drawings'), href: '/drawings/list' },
     { label: drawingId },
   ]
 

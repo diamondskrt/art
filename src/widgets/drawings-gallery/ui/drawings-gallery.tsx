@@ -1,7 +1,10 @@
 'use client'
 
-import { useGetDrawings } from '~/entities/drawing'
-import { Drawing, DrawingSkeleton } from '~/features/drawing'
+import {
+  useGetDrawings,
+  DrawingComponent,
+  DrawingSkeleton,
+} from '~/entities/drawing'
 import { Link } from '~/shared/lib'
 import { cn } from '~/shared/utils'
 
@@ -37,7 +40,7 @@ export function DrawingsGallery({ className }: Props) {
           key={drawing.$id}
           href={{ pathname: '/drawings/[id]', params: { id: drawing.$id } }}
         >
-          <Drawing drawing={drawing} />
+          <DrawingComponent drawing={drawing} />
         </Link>
       ))}
     </div>

@@ -12,3 +12,11 @@ export {
   useDeleteDrawing,
   useUpdateDrawing,
 } from './lib'
+export {
+  DrawingSortableGrid,
+  DrawingSortableImageItem,
+  DrawingWithSwiper,
+  DrawingSkeleton,
+  DrawingSwiper,
+  DrawingComponent,
+} from './ui'

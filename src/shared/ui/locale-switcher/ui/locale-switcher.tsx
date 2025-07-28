@@ -1,5 +1,6 @@
 'use client'
 
+import { useParams } from 'next/navigation'
 import { useLocale, useTranslations, Locale } from 'next-intl'
 import { useTransition } from 'react'
 
@@ -13,13 +14,21 @@ function LocaleSwitcher({ className }: { className?: string }) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
   const pathname = usePathname()
+  const params = useParams()
 
   const onSelectChange = (value: string) => {
     const nextLocale = value as Locale
 
     startTransition(() => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      router.replace({ pathname: pathname as any }, { locale: nextLocale })
+      router.replace(
+        {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          pathname: pathname as any,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          params: params as any,
+        },
+        { locale: nextLocale }
+      )
     })
   }
 

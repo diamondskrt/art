@@ -8,7 +8,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   drawing: Drawing
 }
 
-export function Drawing({ drawing, className }: Props) {
+export function DrawingComponent({ drawing, className }: Props) {
   const { title, description, price, images } = drawing
 
   return (
