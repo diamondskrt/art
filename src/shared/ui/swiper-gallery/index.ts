@@ -1,1 +1,0 @@
-export { SwiperGallery } from './ui'

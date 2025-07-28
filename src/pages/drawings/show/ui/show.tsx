@@ -4,7 +4,7 @@ import { use } from 'react'
 import { LocaleParams } from '~/shared/model'
 import { AppLayout } from '~/widgets/layouts'
 
-import { DrawingContainer } from './drawing-container'
+import { DrawingShowContainer } from './drawing-show-container'
 
 type Props = {
   params: LocaleParams
@@ -18,7 +18,7 @@ export function DrawingShow({ params }: Props) {
   return (
     <AppLayout>
       <div className="section">
-        <DrawingContainer />
+        <DrawingShowContainer />
       </div>
     </AppLayout>
   )

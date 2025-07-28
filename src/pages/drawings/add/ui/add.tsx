@@ -3,7 +3,7 @@ import { use } from 'react'
 
 import { AddDrawingForm } from '~/features/add-drawing-form'
 import { LocaleParams } from '~/shared/model'
-import { Typography } from '~/shared/ui'
+import { BreadcrumbItem, Breadcrumbs } from '~/shared/ui'
 import { AppLayout } from '~/widgets/layouts'
 
 type Props = {
@@ -15,13 +15,17 @@ export function DrawingAdd({ params }: Props) {
 
   setRequestLocale(locale)
 
+  const breadcrumbItems: BreadcrumbItem[] = [
+    { label: 'Home', href: '/home' },
+    { label: 'Drawings', href: '/drawings/list' },
+    { label: 'Add Drawing' },
+  ]
+
   return (
     <AppLayout>
       <div className="section">
         <div className="container">
-          <Typography variant="h4" className="uppercase mb-4">
-            Add Drawing
-          </Typography>
+          <Breadcrumbs items={breadcrumbItems} className="mb-8" />
           <AddDrawingForm />
         </div>
       </div>

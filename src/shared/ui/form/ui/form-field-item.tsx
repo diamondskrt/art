@@ -1,7 +1,7 @@
 import { FieldValues } from 'react-hook-form'
 import { NumericFormat } from 'react-number-format'
 
-import { Input, Uploader } from '~/shared/ui'
+import { Input, SortableGrid } from '~/shared/ui'
 import { cn } from '~/shared/utils'
 
 import { FormFieldItemProps } from '../model'
@@ -34,10 +34,10 @@ function FormFieldItem<T extends FieldValues>({
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
             {type === 'file' ? (
-              <Uploader
-                files={field.value as File[]}
-                onUploadAction={(files) => {
-                  field.onChange(files)
+              <SortableGrid
+                initialImages={field.value}
+                onChangeAction={(items) => {
+                  field.onChange(items)
                 }}
               />
             ) : type === 'number' ? (

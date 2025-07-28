@@ -1,1 +1,6 @@
-export type { DrawingPayload, Drawing, DrawingImage } from './types'
+export type {
+  AddDrawingPayload,
+  UpdateDrawingPayload,
+  Drawing,
+  DrawingImage,
+} from './types'

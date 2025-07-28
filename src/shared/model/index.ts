@@ -1,1 +1,1 @@
-export type { Nullable, LocaleParams } from './types'
+export type { Nullable, LocaleParams, Image } from './types'
