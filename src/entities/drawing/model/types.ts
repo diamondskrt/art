@@ -1,21 +1,17 @@
 import { z } from 'zod'
 
-import { drawingFormSchema } from '../config'
+import {
+  addDrawingFormSchema,
+  updateDrawingFormSchema,
+  imageSchema,
+} from '../config'
 
-type DrawingPayload = z.infer<typeof drawingFormSchema>
+type AddDrawingPayload = z.infer<typeof addDrawingFormSchema>
 
-type DrawingImage = {
-  $id: string
-  name: string
-  url: string
-}
+type UpdateDrawingPayload = z.infer<typeof updateDrawingFormSchema>
 
-type Drawing = {
-  $id: string
-  title: string
-  description: string
-  price: number
-  images: DrawingImage[]
-}
+type DrawingImage = z.infer<typeof imageSchema>
 
-export type { DrawingPayload, Drawing, DrawingImage }
+type Drawing = UpdateDrawingPayload
+
+export type { AddDrawingPayload, UpdateDrawingPayload, Drawing, DrawingImage }

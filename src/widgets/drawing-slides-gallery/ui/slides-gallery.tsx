@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
+import { DrawingImage } from '~/entities/drawing'
 import {
   Button,
   Dialog,
@@ -18,11 +19,11 @@ import {
 type SwiperGalleryProps = {
   open: boolean
   onOpenChangeAction: (open: boolean) => void
-  images: string[]
+  images: DrawingImage[]
   activeIndex: number
 }
 
-export function SwiperGallery({
+export function SlidesGallery({
   open,
   onOpenChangeAction,
   images,
@@ -61,6 +62,7 @@ export function SwiperGallery({
           <div className="flex flex-col gap-4">
             <Swiper
               slidesPerView={1}
+              spaceBetween={8}
               initialSlide={activeIndex}
               className="h-[400px] w-[600px]"
               onSwiper={(swiper) => {
@@ -75,10 +77,10 @@ export function SwiperGallery({
                 setIsEnd(swiper.isEnd)
               }}
             >
-              {images.map((image, index) => (
-                <SwiperSlide key={index}>
+              {images.map(({ $id, url }) => (
+                <SwiperSlide key={$id}>
                   <Image
-                    src={image}
+                    src={url}
                     alt="Image"
                     fill
                     className="object-cover"
@@ -88,15 +90,7 @@ export function SwiperGallery({
               ))}
             </Swiper>
             <div className="text-center text-white">
-              <Typography variant="p">
-                Perito Moreno Glacier, Argentina No. 3, December 13th 2018
-              </Typography>
-              <Typography variant="small">
-                20 x 31 1/4 inches, soft pastel on paper, 2020
-              </Typography>
-              <Typography variant="p">
-                {currentIndex + 1} of {images.length}
-              </Typography>
+              <Typography variant="p">{images[currentIndex].name}</Typography>
             </div>
           </div>
           <Button

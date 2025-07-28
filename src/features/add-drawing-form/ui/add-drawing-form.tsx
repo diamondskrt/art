@@ -5,8 +5,8 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 import {
-  drawingFormSchema,
-  DrawingPayload,
+  addDrawingFormSchema,
+  AddDrawingPayload,
   useAddDrawing,
 } from '~/entities/drawing'
 import { useRouter } from '~/shared/lib'
@@ -19,12 +19,12 @@ export function AddDrawingForm() {
 
   const { mutate: addDrawing, isPending } = useAddDrawing()
 
-  const form = useForm<DrawingPayload>({
-    resolver: zodResolver(drawingFormSchema),
+  const form = useForm<AddDrawingPayload>({
+    resolver: zodResolver(addDrawingFormSchema),
     defaultValues,
   })
 
-  const onSubmit = async (values: DrawingPayload) => {
+  const onSubmit = async (values: AddDrawingPayload) => {
     try {
       await addDrawing(values)
       toast.success('Drawing added successfully')
@@ -36,34 +36,35 @@ export function AddDrawingForm() {
   }
 
   return (
-    <Form {...form} onSubmit={onSubmit} className="w-[350px] space-y-4">
+    <Form {...form} onSubmit={onSubmit} className="space-y-4">
       <FormFieldItem
         control={form.control}
         name="images"
-        placeholder="Enter image"
-        description="You can upload up to 5 images, max. 10MB each"
         type="file"
+        description="*Drag and drop images to reorder them, max 5 images"
       />
-      <FormFieldItem
-        control={form.control}
-        name="title"
-        placeholder="Enter title"
-      />
-      <FormFieldItem
-        control={form.control}
-        name="description"
-        placeholder="Enter description"
-      />
-      <FormFieldItem
-        control={form.control}
-        name="price"
-        placeholder="Enter price"
-        type="number"
-        description="Price must be up to 100 000 $"
-      />
-      <Button type="submit" disabled={isPending} className="cursor-pointer">
-        Submit
-      </Button>
+      <div className="w-full md:w-1/3 lg:w-[350px] space-y-4">
+        <FormFieldItem
+          control={form.control}
+          name="title"
+          placeholder="Enter title"
+        />
+        <FormFieldItem
+          control={form.control}
+          name="description"
+          placeholder="Enter description"
+        />
+        <FormFieldItem
+          control={form.control}
+          name="price"
+          placeholder="Enter price"
+          type="number"
+          description="Price must be up to 100 000 $"
+        />
+        <Button type="submit" disabled={isPending} className="cursor-pointer">
+          Submit
+        </Button>
+      </div>
     </Form>
   )
 }

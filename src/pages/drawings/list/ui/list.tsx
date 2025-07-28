@@ -26,7 +26,7 @@ export function DrawingList({ params }: Props) {
     <AppLayout>
       <div className="section">
         <div className="container">
-          <div className="flex justify-between gap-4 mb-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <Breadcrumbs items={breadcrumbItems} />
             <AddDrawingBtn />
           </div>

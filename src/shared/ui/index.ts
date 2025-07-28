@@ -22,8 +22,6 @@ export { Sonner } from './sonner'
 export { Label } from './label'
 export { Input } from './input'
 export { Form, FormFieldItem } from './form'
-export { SwiperGallery } from './swiper-gallery'
-export { Swiper } from './swiper'
 export {
   Dialog,
   DialogClose,
@@ -99,3 +97,4 @@ export {
   SidebarContext,
   type SidebarContextProps,
 } from './sidebar'
+export { SortableGrid } from './sortable'

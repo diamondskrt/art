@@ -1,8 +1,14 @@
-export { drawingFormSchema } from './config'
-export type { DrawingPayload, Drawing, DrawingImage } from './model'
+export { addDrawingFormSchema, updateDrawingFormSchema } from './config'
+export type {
+  AddDrawingPayload,
+  UpdateDrawingPayload,
+  Drawing,
+  DrawingImage,
+} from './model'
 export {
   useAddDrawing,
   useGetDrawings,
   useGetDrawing,
   useDeleteDrawing,
+  useUpdateDrawing,
 } from './lib'

@@ -1,1 +1,7 @@
-export { addDrawing, getDrawings, getDrawing, deleteDrawing } from './api'
+export {
+  addDrawing,
+  getDrawings,
+  getDrawing,
+  deleteDrawing,
+  updateDrawing,
+} from './api'

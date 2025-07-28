@@ -1,1 +1,6 @@
-export { Drawing, DrawingSkeleton } from './ui'
+export {
+  Drawing,
+  DrawingWithSwiper,
+  DrawingSwiper,
+  DrawingSkeleton,
+} from './ui'

@@ -1,0 +1,5 @@
+const MIN_FILES = 1
+const MAX_FILES = 5
+const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5MB
+
+export { MAX_FILES, MAX_FILE_SIZE, MIN_FILES }

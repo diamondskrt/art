@@ -161,3 +161,11 @@
     @apply py-12;
   }
 }
+
+.swiper-slide-thumb:not(.swiper-slide-thumb-active) {
+  @apply brightness-50 grayscale;
+}
+
+.swiper-slide-thumb-active {
+  @apply brightness-100;
+}

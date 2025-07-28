@@ -15,11 +15,11 @@ export function Header() {
         <Typography asChild variant="h3" className="uppercase">
           <Link href="/home">Kanzafarova Elvira</Link>
         </Typography>
-        <div className="flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4">
           <NavigationLink href="/home">{t('home')}</NavigationLink>
           <NavigationLink href="/drawings/list">{t('drawings')}</NavigationLink>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-2">
           <ThemeSwitcher />
           <LocaleSwitcher className="min-w-[80px]" />
           <Profile />
