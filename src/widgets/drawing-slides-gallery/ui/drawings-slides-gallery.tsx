@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useState } from 'react'
 
 import { useGetDrawings } from '~/entities/drawing'
@@ -57,7 +56,12 @@ export function DrawingSlidesGallery({ className }: Props) {
               key={$id}
               className="relative aspect-square rounded-md overflow-hidden"
             >
-              <OImage url={images[0].url} name={images[0].name} />
+              <OImage
+                src={images[0].url}
+                alt={images[0].name}
+                className="cursor-pointer"
+                onClick={() => openSwiperGallery(index)}
+              />
             </div>
           )
         })}

@@ -2,7 +2,7 @@
 
 import { useSearchParams, useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useDebounce } from 'use-debounce'
 
 import { Input, InputProps } from '~/shared/ui'
@@ -24,19 +24,15 @@ export const SearchInput = ({
   const searchParams = useSearchParams()
   const router = useRouter()
   const t = useTranslations('UI.search-input')
-  const searchParam = searchParams?.get(paramKey) || ''
 
-  const initial = searchParams?.get(paramKey) || ''
-  const [inputValue, setInputValue] = useState(initial)
+  const initialSearchValue = useMemo(
+    () => searchParams?.get(paramKey) || '',
+    [searchParams, paramKey]
+  )
+  const [inputValue, setInputValue] = useState(initialSearchValue)
 
   const [debouncedValue] = useDebounce(inputValue, delay)
 
-  // Сброс локального состояния при навигации назад/вперёд
-  useEffect(() => {
-    setInputValue(searchParams?.get(paramKey) || '')
-  }, [searchParams, paramKey])
-
-  // Обновление query параметров
   useEffect(() => {
     const params = new URLSearchParams(searchParams?.toString() || '')
 
@@ -45,11 +41,9 @@ export const SearchInput = ({
     } else {
       params.delete(paramKey)
     }
-
-    params.set('page', '1')
-
     router.push(`?${params.toString()}`)
-  }, [debouncedValue, paramKey, router, searchParam])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedValue])
 
   return (
     <Input

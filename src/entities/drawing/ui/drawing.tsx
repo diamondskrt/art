@@ -17,7 +17,7 @@ export function DrawingComponent({ drawing, className }: Props) {
       )}
     >
       <div className="relative aspect-square">
-        <OImage url={images[0].url} name={images[0].name} />
+        <OImage src={images[0].url} alt={images[0].name} />
       </div>
 
       <Typography variant="p">{title}</Typography>

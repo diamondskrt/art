@@ -24,7 +24,7 @@ export function Home({ params }: Props) {
     <AppLayout>
       <div className="section">
         <div className="container relative h-[500px]">
-          <OImage url="/assets/img/zaria-forman.webp" name="zaria-forman" />
+          <OImage src="/assets/img/zaria-forman.webp" alt="zaria-forman" />
         </div>
       </div>
       <div className="section">

@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 
 import {
   useGetDrawings,
@@ -9,6 +9,7 @@ import {
 } from '~/entities/drawing'
 import { Link } from '~/shared/lib'
 import {
+  DEFAULT_PAGE,
   Pagination,
   SearchInput,
   Skeleton,
@@ -28,6 +29,11 @@ export function DrawingsGallery({ className }: Props) {
 
   const drawings = data?.drawings || []
   const total = data?.total || 0
+
+  useEffect(() => {
+    if (!search) return
+    setPage(DEFAULT_PAGE)
+  }, [search, setPage])
 
   if (isLoading) {
     return (

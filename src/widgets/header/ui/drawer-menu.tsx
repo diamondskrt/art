@@ -1,8 +1,6 @@
 import {
   BreadcrumbItem,
   DrawerTitleHidden,
-  ThemeSwitcher,
-  LocaleSwitcher,
   Drawer,
   DrawerContent,
   DrawerTrigger,
