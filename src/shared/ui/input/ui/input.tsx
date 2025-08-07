@@ -2,7 +2,9 @@ import * as React from 'react'
 
 import { cn } from '~/shared/utils'
 
-function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
+import { InputProps } from '../model'
+
+function Input({ className, type, ...props }: InputProps) {
   return (
     <input
       type={type}

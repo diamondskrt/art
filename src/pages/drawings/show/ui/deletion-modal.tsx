@@ -1,18 +1,24 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
+
 import { Modal } from '~/shared/ui'
 
 type Props = {
   children: React.ReactNode
-  onDelete: () => void
+  onDeleteAction: () => void
 }
 
-export function DeletionModal({ children, onDelete }: Props) {
+export function DeletionModal({ children, onDeleteAction }: Props) {
+  const t = useTranslations('ShowDrawingPage.deletionModal')
+
   return (
     <Modal
-      title="Delete Drawing"
-      description="Are you sure you want to delete this drawing?"
-      okText="Delete"
-      onCancelAction={() => {}}
-      onOkAction={onDelete}
+      title={t('title')}
+      description={t('description')}
+      okText={t('okText')}
+      cancelText={t('cancelText')}
+      onOkAction={onDeleteAction}
     >
       {children}
     </Modal>

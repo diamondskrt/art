@@ -10,6 +10,7 @@ import 'swiper/css'
 import 'swiper/css/thumbs'
 import 'swiper/css/free-mode'
 import { DrawingImage } from '~/entities/drawing'
+import { OImage } from '~/shared/ui'
 
 type SwiperProps = {
   images: DrawingImage[]
@@ -31,15 +32,7 @@ export function DrawingSwiper({ images }: SwiperProps) {
         {images.map(({ $id, url, name }) => (
           <SwiperSlide key={$id}>
             <div className="relative w-full h-full rounded overflow-hidden">
-              <Image
-                src={url}
-                alt={name}
-                fill
-                placeholder="blur"
-                blurDataURL="/assets/img/placeholder.webp"
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+              <OImage url={url} name={name} />
             </div>
           </SwiperSlide>
         ))}
@@ -58,15 +51,7 @@ export function DrawingSwiper({ images }: SwiperProps) {
         {images.map(({ $id, url, name }) => (
           <SwiperSlide key={$id} className="swiper-slide-thumb">
             <div className="relative w-full h-full rounded overflow-hidden">
-              <Image
-                src={url}
-                alt={name}
-                fill
-                placeholder="blur"
-                blurDataURL="/assets/img/placeholder.webp"
-                className="object-cover"
-                sizes="100px"
-              />
+              <OImage url={url} name={name} />
             </div>
           </SwiperSlide>
         ))}

@@ -6,7 +6,7 @@ import { formatPrice, cn } from '~/shared/utils'
 
 import { DrawingSwiper } from './drawing-swiper'
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+type Props = React.HTMLAttributes<HTMLDivElement> & {
   drawing: Drawing
 }
 

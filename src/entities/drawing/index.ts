@@ -16,6 +16,7 @@ export {
   DrawingSortableGrid,
   DrawingSortableImageItem,
   DrawingWithSwiper,
+  DrawingWithSwiperSkeleton,
   DrawingSkeleton,
   DrawingSwiper,
   DrawingComponent,

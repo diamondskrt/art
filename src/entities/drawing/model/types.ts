@@ -14,4 +14,16 @@ type DrawingImage = z.infer<typeof imageSchema>
 
 type Drawing = UpdateDrawingPayload
 
-export type { AddDrawingPayload, UpdateDrawingPayload, Drawing, DrawingImage }
+type GetDrawingsParams = {
+  page?: number
+  limit?: number
+  search?: string
+}
+
+export type {
+  AddDrawingPayload,
+  UpdateDrawingPayload,
+  Drawing,
+  DrawingImage,
+  GetDrawingsParams,
+}

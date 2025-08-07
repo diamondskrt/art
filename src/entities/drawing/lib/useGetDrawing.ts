@@ -7,5 +7,6 @@ export const useGetDrawing = (id: string) => {
     queryKey: ['drawing', id],
     queryFn: () => getDrawing(id),
     enabled: Boolean(id),
+    retry: 2,
   })
 }

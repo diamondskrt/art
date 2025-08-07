@@ -1,0 +1,1 @@
+export { OImage } from './ui'

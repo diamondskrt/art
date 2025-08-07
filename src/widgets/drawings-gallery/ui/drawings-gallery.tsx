@@ -1,50 +1,83 @@
 'use client'
 
+import { useMemo } from 'react'
+
 import {
   useGetDrawings,
   DrawingComponent,
   DrawingSkeleton,
 } from '~/entities/drawing'
 import { Link } from '~/shared/lib'
+import {
+  Pagination,
+  SearchInput,
+  Skeleton,
+  usePagination,
+  useSearch,
+} from '~/shared/ui'
 import { cn } from '~/shared/utils'
 
 type Props = React.HTMLAttributes<HTMLDivElement>
 
 export function DrawingsGallery({ className }: Props) {
-  const { data: drawings, isLoading } = useGetDrawings()
+  const { page, setPage, limit } = usePagination()
+  const { search } = useSearch()
+  const params = useMemo(() => ({ page, limit, search }), [page, limit, search])
+
+  const { data, isLoading } = useGetDrawings(params)
+
+  const drawings = data?.drawings || []
+  const total = data?.total || 0
 
   if (isLoading) {
     return (
-      <div
-        className={cn(
-          'grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4',
-          className
-        )}
-      >
-        {Array.from({ length: 4 }).map((_, index) => (
-          <DrawingSkeleton key={index} />
-        ))}
-      </div>
+      <>
+        <Skeleton className="mb-8 w-[350px] h-9" />
+        <div
+          className={cn(
+            'grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4',
+            className
+          )}
+        >
+          {Array.from({ length: 4 }).map((_, index) => (
+            <DrawingSkeleton key={index} />
+          ))}
+        </div>
+      </>
     )
   }
 
-  return drawings && drawings.length > 0 ? (
-    <div
-      className={cn(
-        'grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4',
-        className
-      )}
-    >
-      {drawings.map((drawing) => (
-        <Link
-          key={drawing.$id}
-          href={{ pathname: '/drawings/[id]', params: { id: drawing.$id } }}
+  return (
+    <>
+      <SearchInput className="mb-8 w-[350px]" />
+      {drawings.length > 0 ? (
+        <div
+          className={cn(
+            'grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4',
+            className
+          )}
         >
-          <DrawingComponent drawing={drawing} />
-        </Link>
-      ))}
-    </div>
-  ) : (
-    <div>No drawings found</div>
+          {drawings.map((drawing) => (
+            <Link
+              key={drawing.$id}
+              href={{ pathname: '/drawings/[id]', params: { id: drawing.$id } }}
+            >
+              <DrawingComponent drawing={drawing} />
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <div>No drawings found</div>
+      )}
+      {total > limit && (
+        <Pagination
+          page={page}
+          total={total}
+          limit={limit}
+          className="mt-8"
+          onPageChangeAction={setPage}
+        />
+      )}
+    </>
   )
 }

@@ -1,5 +1,6 @@
 export { DrawingComponent } from './drawing'
 export { DrawingWithSwiper } from './drawing-with-swiper'
+export { DrawingWithSwiperSkeleton } from './drawing-with-swiper-skeleton'
 export { DrawingSkeleton } from './drawing-skeleton'
 export { DrawingSwiper } from './drawing-swiper'
 export { DrawingSortableGrid } from './drawing-sortable-grid'

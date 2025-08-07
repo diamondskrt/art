@@ -22,7 +22,7 @@ export function ContactForm({ className, ...props }: ContactFormProps) {
     <Form
       {...form}
       {...props}
-      className={cn('flex gap-4', className)}
+      className={cn('flex flex-col md:flex-row gap-4', className)}
       onSubmit={() => {}}
     >
       <FormFieldItem

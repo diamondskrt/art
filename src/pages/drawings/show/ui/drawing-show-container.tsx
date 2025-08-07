@@ -1,6 +1,5 @@
 'use client'
 
-import { PencilIcon, TrashIcon } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
@@ -9,12 +8,12 @@ import {
   useDeleteDrawing,
   useGetDrawing,
   DrawingWithSwiper,
-  DrawingSkeleton,
+  DrawingWithSwiperSkeleton,
 } from '~/entities/drawing'
-import { Link, useRouter } from '~/shared/lib'
-import { BreadcrumbItem, Breadcrumbs, Button } from '~/shared/ui'
+import { useRouter } from '~/shared/lib'
+import { BreadcrumbItem, Breadcrumbs } from '~/shared/ui'
 
-import { DeletionModal } from './deletion-modal'
+import { DrawingShowActions } from './actions'
 
 export function DrawingShowContainer() {
   const params = useParams()
@@ -51,31 +50,15 @@ export function DrawingShowContainer() {
     <div className="container">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <Breadcrumbs items={breadcrumbItems} />
-        <div className="flex flex-col md:flex-row gap-4">
-          {drawingId && (
-            <Link
-              href={{
-                pathname: '/drawings/[id]/edit',
-                params: { id: drawingId },
-              }}
-            >
-              <Button variant="outline" className="cursor-pointer">
-                <PencilIcon className="w-4 h-4" />
-                {t('actions.edit')}
-              </Button>
-            </Link>
-          )}
-          <DeletionModal onDelete={handleDelete}>
-            <Button variant="destructive" className="cursor-pointer">
-              <TrashIcon className="w-4 h-4" />
-              {t('actions.delete')}
-            </Button>
-          </DeletionModal>
-        </div>
+        <DrawingShowActions
+          drawingId={drawingId}
+          isLoading={isLoading}
+          onDeleteAction={handleDelete}
+        />
       </div>
       <div>
         {isLoading ? (
-          <DrawingSkeleton />
+          <DrawingWithSwiperSkeleton />
         ) : drawing ? (
           <DrawingWithSwiper drawing={drawing} />
         ) : (

@@ -1,5 +1,6 @@
 'use client'
 
+import { Content } from '@radix-ui/react-dialog'
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
@@ -10,9 +11,10 @@ import { DrawingImage } from '~/entities/drawing'
 import {
   Button,
   Dialog,
-  DialogContent,
-  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
   DialogTitleHidden,
+  OImage,
   Typography,
 } from '~/shared/ui'
 
@@ -46,25 +48,29 @@ export function SlidesGallery({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChangeAction}>
-      <DialogContent aria-describedby={undefined} className="max-w-[80%]">
-        <DialogHeader closeButtonClassName="text-white -top-10">
+      <DialogPortal data-slot="dialog-portal">
+        <DialogOverlay className="bg-black/80" />
+        <Content
+          aria-describedby={undefined}
+          data-slot="dialog-content"
+          className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 w-full md:w-[60%] translate-x-[-50%] translate-y-[-50%] duration-200"
+        >
           <DialogTitleHidden />
-        </DialogHeader>
-        <div className="flex items-center justify-between gap-4">
-          <Button
-            variant="ghost"
-            className="text-white cursor-pointer hover:bg-transparent hover:text-white"
-            disabled={isBeginning}
-            onClick={() => swiperRef.current?.slidePrev()}
-          >
-            <ChevronLeftIcon className="size-6" />
-          </Button>
-          <div className="flex flex-col gap-4">
+          <div className="absolute z-10 top-1/2 left-0 -translate-y-1/2">
+            <Button
+              variant="ghost"
+              className="text-white cursor-pointer hover:bg-transparent hover:text-white"
+              disabled={isBeginning}
+              onClick={() => swiperRef.current?.slidePrev()}
+            >
+              <ChevronLeftIcon className="size-6" />
+            </Button>
+          </div>
+          <div className="relative">
             <Swiper
               slidesPerView={1}
               spaceBetween={8}
               initialSlide={activeIndex}
-              className="h-[400px] w-[600px]"
               onSwiper={(swiper) => {
                 swiperRef.current = swiper
                 setCurrentIndex(swiper.activeIndex)
@@ -77,32 +83,33 @@ export function SlidesGallery({
                 setIsEnd(swiper.isEnd)
               }}
             >
-              {images.map(({ $id, url }) => (
+              {images.map(({ $id, url, name }) => (
                 <SwiperSlide key={$id}>
-                  <Image
-                    src={url}
-                    alt="Image"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+                  <div className="relative w-full aspect-video">
+                    <OImage url={url} name={name} />
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
-            <div className="text-center text-white">
-              <Typography variant="p">{images[currentIndex].name}</Typography>
+
+            <div className="absolute -bottom-10 left-0 w-full">
+              <Typography variant="p" className="text-center text-white mt-4">
+                {images[currentIndex].name}
+              </Typography>
             </div>
           </div>
-          <Button
-            variant="ghost"
-            className="text-white cursor-pointer hover:bg-transparent hover:text-white"
-            disabled={isEnd}
-            onClick={() => swiperRef.current?.slideNext()}
-          >
-            <ChevronRightIcon className="size-6" />
-          </Button>
-        </div>
-      </DialogContent>
+          <div className="absolute z-10 top-1/2 right-0 -translate-y-1/2">
+            <Button
+              variant="ghost"
+              className="text-white cursor-pointer hover:bg-transparent hover:text-white"
+              disabled={isEnd}
+              onClick={() => swiperRef.current?.slideNext()}
+            >
+              <ChevronRightIcon className="size-6" />
+            </Button>
+          </div>
+        </Content>
+      </DialogPortal>
     </Dialog>
   )
 }

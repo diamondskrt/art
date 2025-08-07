@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 import { useGetDrawings } from '~/entities/drawing'
-import { Skeleton } from '~/shared/ui'
+import { OImage, Skeleton } from '~/shared/ui'
 import { cn } from '~/shared/utils'
 
 import { SlidesGallery } from './slides-gallery'
@@ -19,7 +19,9 @@ export function DrawingSlidesGallery({ className }: Props) {
     setActiveIndex(index)
   }
 
-  const { data: drawings, isLoading } = useGetDrawings()
+  const { data, isLoading } = useGetDrawings()
+
+  const drawings = data?.drawings || []
 
   if (isLoading) {
     return (
@@ -41,7 +43,7 @@ export function DrawingSlidesGallery({ className }: Props) {
     )
   }
 
-  return drawings && drawings.length > 0 ? (
+  return drawings.length > 0 ? (
     <>
       <div
         className={cn(
@@ -55,15 +57,7 @@ export function DrawingSlidesGallery({ className }: Props) {
               key={$id}
               className="relative aspect-square rounded-md overflow-hidden"
             >
-              <Image
-                src={images[0].url}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                priority
-                alt="Picture of the author"
-                className="object-cover cursor-pointer"
-                onClick={() => openSwiperGallery(index)}
-              />
+              <OImage url={images[0].url} name={images[0].name} />
             </div>
           )
         })}

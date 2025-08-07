@@ -1,7 +1,5 @@
-import Image from 'next/image'
-
 import type { Drawing } from '~/entities/drawing'
-import { Typography } from '~/shared/ui'
+import { OImage, Typography } from '~/shared/ui'
 import { formatPrice, cn } from '~/shared/utils'
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -19,15 +17,7 @@ export function DrawingComponent({ drawing, className }: Props) {
       )}
     >
       <div className="relative aspect-square">
-        <Image
-          src={images[0].url}
-          alt={images[0].name}
-          fill
-          placeholder="blur"
-          blurDataURL="/assets/img/placeholder.webp"
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        <OImage url={images[0].url} name={images[0].name} />
       </div>
 
       <Typography variant="p">{title}</Typography>

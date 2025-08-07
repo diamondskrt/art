@@ -3,4 +3,5 @@ export type {
   UpdateDrawingPayload,
   Drawing,
   DrawingImage,
+  GetDrawingsParams,
 } from './types'
