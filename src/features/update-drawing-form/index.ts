@@ -1,1 +1,1 @@
-export { UpdateDrawingForm } from './ui'
+export { UpdateDrawingForm, UpdateDrawingFormSkeleton } from './ui'

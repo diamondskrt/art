@@ -80,7 +80,11 @@ export function UpdateDrawingForm({ drawing }: { drawing: Drawing }) {
             type="number"
             description={t('priceDescription')}
           />
-          <Button type="submit" disabled={isPending} className="cursor-pointer">
+          <Button
+            type="submit"
+            disabled={isPending}
+            className="cursor-pointer w-full md:w-auto"
+          >
             {t('submitBtn')}
           </Button>
         </div>

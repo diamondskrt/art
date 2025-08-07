@@ -1,4 +1,4 @@
-import { ID } from 'appwrite'
+import { ID, Query } from 'appwrite'
 
 import {
   storage,
@@ -9,7 +9,7 @@ import {
   DRAWINGS_COLLECTION_ID,
 } from '~/shared/lib'
 
-import { Drawing, AddDrawingPayload } from '../model'
+import { Drawing, AddDrawingPayload, GetDrawingsParams } from '../model'
 
 const addDrawing = async ({
   title,
@@ -70,19 +70,39 @@ const addDrawing = async ({
   }
 }
 
-const getDrawings = async (): Promise<Drawing[]> => {
+const getDrawings = async (
+  params?: GetDrawingsParams
+): Promise<{ drawings: Drawing[]; total: number }> => {
   try {
-    const drawings = (await databases.listDocuments(
-      DATABASE_ID,
-      DRAWINGS_COLLECTION_ID
-    )) as unknown as { documents: Drawing[] }
+    const { page = 1, limit = 10, search = '' } = params || {}
 
-    return drawings.documents.map((drawing) => ({
-      ...drawing,
-      images: drawing.images.toSorted(
-        (a, b) => (a.order ?? 0) - (b.order ?? 0)
-      ),
-    }))
+    const offset = (page - 1) * limit
+
+    const queries: string[] = [Query.limit(limit), Query.offset(offset)]
+
+    if (search) {
+      queries.push(Query.contains('title', search))
+    }
+
+    const response = await databases.listDocuments(
+      DATABASE_ID,
+      DRAWINGS_COLLECTION_ID,
+      queries
+    )
+
+    const drawings = (response.documents as unknown as Drawing[]).map(
+      (drawing) => ({
+        ...drawing,
+        images: drawing.images.toSorted(
+          (a, b) => (a.order ?? 0) - (b.order ?? 0)
+        ),
+      })
+    )
+
+    return {
+      drawings,
+      total: response.total,
+    }
   } catch (error) {
     throw error
   }

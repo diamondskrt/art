@@ -1,0 +1,4 @@
+const DEFAULT_LIMIT = 10
+const DEFAULT_PAGE = 1
+
+export { DEFAULT_LIMIT, DEFAULT_PAGE }

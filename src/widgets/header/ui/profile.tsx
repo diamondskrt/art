@@ -14,7 +14,7 @@ function Profile() {
     <UserMenu />
   ) : (
     <Link href="/auth/sign-in">
-      <Button variant="outline">
+      <Button variant="outline" className="min-w-12">
         <UserIcon />
       </Button>
     </Link>

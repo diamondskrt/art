@@ -60,6 +60,12 @@ declare const messages: {
       description: 'Description'
       price: 'Price'
     }
+    deletionModal: {
+      title: 'Delete Drawing'
+      description: 'Are you sure you want to delete this drawing?'
+      okText: 'Delete'
+      cancelText: 'Cancel'
+    }
   }
   EditDrawingPage: {
     breadcrumbs: {
@@ -97,6 +103,12 @@ declare const messages: {
   Navigation: {
     home: 'Home'
     drawings: 'Drawings'
+    back: 'back'
+  }
+  UI: {
+    'search-input': {
+      placeholder: 'Search'
+    }
   }
 }
 export default messages

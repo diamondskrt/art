@@ -1,0 +1,4 @@
+const SEARCH_PARAM_KEY = 'search'
+const DEFAULT_DELAY = 500
+
+export { SEARCH_PARAM_KEY, DEFAULT_DELAY }

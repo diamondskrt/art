@@ -4,7 +4,7 @@ import { use } from 'react'
 
 import { AddDrawingForm } from '~/features/add-drawing-form'
 import { LocaleParams } from '~/shared/model'
-import { BreadcrumbItem, Breadcrumbs } from '~/shared/ui'
+import { BackButton, BreadcrumbItem, Breadcrumbs } from '~/shared/ui'
 import { AppLayout } from '~/widgets/layouts'
 
 type Props = {
@@ -28,7 +28,10 @@ export function DrawingAdd({ params }: Props) {
     <AppLayout>
       <div className="section">
         <div className="container">
-          <Breadcrumbs items={breadcrumbItems} className="mb-8" />
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <Breadcrumbs items={breadcrumbItems} />
+            <BackButton />
+          </div>
           <AddDrawingForm />
         </div>
       </div>

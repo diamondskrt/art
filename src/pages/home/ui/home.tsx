@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import { use } from 'react'
@@ -6,7 +5,7 @@ import { use } from 'react'
 import { ContactForm } from '~/features/contact-form'
 import { Link } from '~/shared/lib'
 import { LocaleParams } from '~/shared/model'
-import { Button, Typography } from '~/shared/ui'
+import { Button, OImage, Typography } from '~/shared/ui'
 import { DrawingSlidesGallery } from '~/widgets/drawing-slides-gallery'
 import { AppLayout } from '~/widgets/layouts'
 
@@ -25,13 +24,7 @@ export function Home({ params }: Props) {
     <AppLayout>
       <div className="section">
         <div className="container relative h-[500px]">
-          <Image
-            src="/assets/img/zaria-forman.webp"
-            fill
-            priority
-            alt="Picture of the author"
-            className="object-cover"
-          />
+          <OImage url="/assets/img/zaria-forman.webp" name="zaria-forman" />
         </div>
       </div>
       <div className="section">
@@ -68,7 +61,7 @@ export function Home({ params }: Props) {
             <Typography variant="p">{t('contacts.text1')}</Typography>
             <Typography variant="p">{t('contacts.text2')}</Typography>
           </div>
-          <ContactForm className="w-[60%]" />
+          <ContactForm className="w-full md:w-[60%]" />
         </div>
       </div>
     </AppLayout>

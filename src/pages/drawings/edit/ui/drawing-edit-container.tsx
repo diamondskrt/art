@@ -4,8 +4,11 @@ import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 
 import { useGetDrawing } from '~/entities/drawing'
-import { UpdateDrawingForm } from '~/features/update-drawing-form'
-import { BreadcrumbItem, Breadcrumbs } from '~/shared/ui'
+import {
+  UpdateDrawingForm,
+  UpdateDrawingFormSkeleton,
+} from '~/features/update-drawing-form'
+import { BackButton, BreadcrumbItem, Breadcrumbs } from '~/shared/ui'
 
 export function DrawingEditContainer() {
   const params = useParams()
@@ -26,9 +29,12 @@ export function DrawingEditContainer() {
 
   return (
     <div className="container">
-      <Breadcrumbs items={breadcrumbItems} className="mb-8" />
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <Breadcrumbs items={breadcrumbItems} />
+        <BackButton />
+      </div>
       {isLoading ? (
-        <div>Loading...</div>
+        <UpdateDrawingFormSkeleton />
       ) : drawing ? (
         <UpdateDrawingForm drawing={drawing} />
       ) : (

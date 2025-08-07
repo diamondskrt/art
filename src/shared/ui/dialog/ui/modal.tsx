@@ -37,13 +37,14 @@ export function Modal({
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent
+        showCloseButton
         className={cn(
           'md:max-w-[500px] h-[200px] grid px-6 py-4 bg-background rounded',
           description ? 'grid-rows-[auto_1fr_auto]' : 'grid-rows-[1fr_auto]'
         )}
       >
         {title && (
-          <DialogHeader closeButtonIconClassName="size-4">
+          <DialogHeader>
             <DialogTitle>{title}</DialogTitle>
           </DialogHeader>
         )}
