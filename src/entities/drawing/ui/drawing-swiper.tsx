@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useState } from 'react'
 import type { Swiper as SwiperType } from 'swiper'
 import { Thumbs, FreeMode } from 'swiper/modules'
@@ -32,7 +31,7 @@ export function DrawingSwiper({ images }: SwiperProps) {
         {images.map(({ $id, url, name }) => (
           <SwiperSlide key={$id}>
             <div className="relative w-full h-full rounded overflow-hidden">
-              <OImage url={url} name={name} />
+              <OImage src={url} alt={name} />
             </div>
           </SwiperSlide>
         ))}
@@ -51,7 +50,7 @@ export function DrawingSwiper({ images }: SwiperProps) {
         {images.map(({ $id, url, name }) => (
           <SwiperSlide key={$id} className="swiper-slide-thumb">
             <div className="relative w-full h-full rounded overflow-hidden">
-              <OImage url={url} name={name} />
+              <OImage src={url} alt={name} />
             </div>
           </SwiperSlide>
         ))}

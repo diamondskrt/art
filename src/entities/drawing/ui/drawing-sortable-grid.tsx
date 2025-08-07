@@ -71,6 +71,7 @@ export function DrawingSortableGrid({
 
   useEffect(() => {
     onChangeAction?.(items)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items])
 
   return (

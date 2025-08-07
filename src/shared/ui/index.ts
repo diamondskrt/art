@@ -61,7 +61,7 @@ export {
   navigationMenuTriggerStyle,
 } from './navigation-menu'
 export { OImage } from './image'
-export { Pagination, usePagination } from './pagination'
+export { Pagination, usePagination, DEFAULT_PAGE } from './pagination'
 export { SearchInput, useSearch } from './search-input'
 export { Separator } from './separator'
 export {

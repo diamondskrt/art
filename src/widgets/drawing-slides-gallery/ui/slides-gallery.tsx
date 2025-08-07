@@ -2,7 +2,6 @@
 
 import { Content } from '@radix-ui/react-dialog'
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
-import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -86,7 +85,7 @@ export function SlidesGallery({
               {images.map(({ $id, url, name }) => (
                 <SwiperSlide key={$id}>
                   <div className="relative w-full aspect-video">
-                    <OImage url={url} name={name} />
+                    <OImage src={url} alt={name} />
                   </div>
                 </SwiperSlide>
               ))}
