@@ -1,29 +1,29 @@
-import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
-import { Suspense, use } from "react";
+import { useTranslations } from 'next-intl'
+import { setRequestLocale } from 'next-intl/server'
+import { Suspense, use } from 'react'
 
-import { LocaleParams } from "~/shared/model";
-import { BreadcrumbItem, Breadcrumbs } from "~/shared/ui";
-import { DrawingsGallery } from "~/widgets/drawings-gallery";
-import { AppLayout } from "~/widgets/layouts";
+import { LocaleParams } from '~/shared/model'
+import { BreadcrumbItem, Breadcrumbs } from '~/shared/ui'
+import { DrawingsGallery } from '~/widgets/drawings-gallery'
+import { AppLayout } from '~/widgets/layouts'
 
-import { AddDrawingBtn } from "./add-drawing-btn";
+import { AddDrawingBtn } from './add-drawing-btn'
 
 type Props = {
-  params: LocaleParams;
-};
+  params: LocaleParams
+}
 
 export function DrawingList({ params }: Props) {
-  const { locale } = use(params);
+  const { locale } = use(params)
 
-  setRequestLocale(locale);
+  setRequestLocale(locale)
 
-  const t = useTranslations("ListDrawingsPage");
+  const t = useTranslations('ListDrawingsPage')
 
   const breadcrumbItems: BreadcrumbItem[] = [
-    { label: t("breadcrumbs.home"), href: "/home" },
-    { label: t("breadcrumbs.drawings"), href: "/drawings/list" },
-  ];
+    { label: t('breadcrumbs.home'), href: '/home' },
+    { label: t('breadcrumbs.drawings'), href: '/drawings/list' },
+  ]
 
   return (
     <AppLayout>
@@ -39,5 +39,5 @@ export function DrawingList({ params }: Props) {
         </div>
       </div>
     </AppLayout>
-  );
+  )
 }
