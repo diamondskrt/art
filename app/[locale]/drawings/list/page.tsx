@@ -1,3 +1,3 @@
-import { DrawingList } from '~/pages/drawings'
+import { DrawingList } from '~/views/drawings'
 
 export default DrawingList

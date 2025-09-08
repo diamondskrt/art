@@ -99,6 +99,12 @@ const eslintConfig = [
       'no-debugger': 'error',
     },
   }),
+  {
+    files: ['**/*.d.json.ts'],
+    rules: {
+      'prettier/prettier': 'off',
+    },
+  },
 ]
 
 export default eslintConfig

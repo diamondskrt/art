@@ -2,113 +2,113 @@
 // See: https://next-intl.dev/docs/workflows/typescript#messages-arguments
 
 declare const messages: {
-  LocaleLayout: {
-    title: 'Art Works'
-  }
-  IndexPage: {
-    bio: '<strong>Kanzafarova Elvira</strong> documents climate change with pastel drawings. She travels to remote regions of the world to collect images and inspiration for her work, which is exhibited worldwide. She has flown with NASA on several Operation IceBridge missions over Antarctica, Greenland, and Arctic Canada. She was featured on CBS Sunday Morning, CNN, PBS, and BBC. She delivered a TEDTalk, and spoke at Amazon, Google, and NASA’s Goddard Space Flight Center, exhibited in Banksy’s Dismaland, and was the artist-in-residence aboard the National Geographic Explorer in Antarctica. Forman curated the first ever, permanent, polar art exhibitions aboard Lindblad Expeditions National Geographic Endurance and the National Geographic Resolution. Her works have appeared in publications such as The New York Times, National Geographic, The Wall Street Journal, and the Smithsonian Magazine. Forman currently works and resides in upstate New York, and is represented by Winston Wächter Fine Art in New York, NY and Seattle, WA.'
-    drawings: {
-      title: 'Drawings'
-      viewAllBtn: 'View all'
-    }
-    contacts: {
-      title: 'Contacts'
-      text1: 'For general enquiries, images of available works, and a price list, email my studio manager at xan@zariaforman.com.'
-      text2: 'Limited edition prints of my work are available exclusively at ArtStar.com.'
-      form: {
-        name: 'Name'
-        email: 'Email'
-        subscribeBtn: 'Subscribe'
+  "LocaleLayout": {
+    "title": "Art Works"
+  },
+  "IndexPage": {
+    "bio": "<strong>Kanzafarova Elvira</strong> documents climate change with pastel drawings. She travels to remote regions of the world to collect images and inspiration for her work, which is exhibited worldwide. She has flown with NASA on several Operation IceBridge missions over Antarctica, Greenland, and Arctic Canada. She was featured on CBS Sunday Morning, CNN, PBS, and BBC. She delivered a TEDTalk, and spoke at Amazon, Google, and NASA’s Goddard Space Flight Center, exhibited in Banksy’s Dismaland, and was the artist-in-residence aboard the National Geographic Explorer in Antarctica. Forman curated the first ever, permanent, polar art exhibitions aboard Lindblad Expeditions National Geographic Endurance and the National Geographic Resolution. Her works have appeared in publications such as The New York Times, National Geographic, The Wall Street Journal, and the Smithsonian Magazine. Forman currently works and resides in upstate New York, and is represented by Winston Wächter Fine Art in New York, NY and Seattle, WA.",
+    "drawings": {
+      "title": "Drawings",
+      "viewAllBtn": "View all"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "text1": "For general enquiries, images of available works, and a price list, email my studio manager at xan@zariaforman.com.",
+      "text2": "Limited edition prints of my work are available exclusively at ArtStar.com.",
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "subscribeBtn": "Subscribe"
       }
     }
+  },
+  "AddDrawingPage": {
+    "breadcrumbs": {
+      "home": "Home",
+      "drawings": "Drawings",
+      "addDrawing": "Add Drawing"
+    },
+    "form": {
+      "title": "Title",
+      "description": "Description",
+      "imagesDescription": "* Drag and drop images to reorder them, max 5 images",
+      "price": "Price",
+      "priceDescription": "Price must be up to 100 000 $",
+      "submitBtn": "Add"
+    }
+  },
+  "ListDrawingsPage": {
+    "breadcrumbs": {
+      "home": "Home",
+      "drawings": "Drawings"
+    },
+    "actions": {
+      "add": "Add Drawing"
+    }
+  },
+  "ShowDrawingPage": {
+    "breadcrumbs": {
+      "home": "Home",
+      "drawings": "Drawings"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "drawing": {
+      "title": "Title",
+      "description": "Description",
+      "price": "Price"
+    },
+    "deletionModal": {
+      "title": "Delete Drawing",
+      "description": "Are you sure you want to delete this drawing?",
+      "okText": "Delete",
+      "cancelText": "Cancel"
+    }
+  },
+  "EditDrawingPage": {
+    "breadcrumbs": {
+      "home": "Home",
+      "drawings": "Drawings"
+    },
+    "form": {
+      "title": "Title",
+      "description": "Description",
+      "imagesDescription": "* Drag and drop images to reorder them, max 5 images",
+      "price": "Price",
+      "priceDescription": "Price must be up to 100 000 $",
+      "submitBtn": "Update"
+    }
+  },
+  "ProfilePage": {
+    "menu": {
+      "title": "Menu",
+      "home": "Home",
+      "drawings": "Drawings"
+    },
+    "userInfo": {
+      "name": "Name",
+      "email": "Email",
+      "roles": "Roles"
+    }
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, ru {RU} en {EN} other {Unknown}}"
+  },
+  "Manifest": {
+    "name": "art-works"
+  },
+  "Navigation": {
+    "home": "Home",
+    "drawings": "Drawings",
+    "back": "back"
+  },
+  "UI": {
+    "search-input": {
+      "placeholder": "Search"
+    }
   }
-  AddDrawingPage: {
-    breadcrumbs: {
-      home: 'Home'
-      drawings: 'Drawings'
-      addDrawing: 'Add Drawing'
-    }
-    form: {
-      title: 'Title'
-      description: 'Description'
-      imagesDescription: '* Drag and drop images to reorder them, max 5 images'
-      price: 'Price'
-      priceDescription: 'Price must be up to 100 000 $'
-      submitBtn: 'Add'
-    }
-  }
-  ListDrawingsPage: {
-    breadcrumbs: {
-      home: 'Home'
-      drawings: 'Drawings'
-    }
-    actions: {
-      add: 'Add Drawing'
-    }
-  }
-  ShowDrawingPage: {
-    breadcrumbs: {
-      home: 'Home'
-      drawings: 'Drawings'
-    }
-    actions: {
-      edit: 'Edit'
-      delete: 'Delete'
-    }
-    drawing: {
-      title: 'Title'
-      description: 'Description'
-      price: 'Price'
-    }
-    deletionModal: {
-      title: 'Delete Drawing'
-      description: 'Are you sure you want to delete this drawing?'
-      okText: 'Delete'
-      cancelText: 'Cancel'
-    }
-  }
-  EditDrawingPage: {
-    breadcrumbs: {
-      home: 'Home'
-      drawings: 'Drawings'
-    }
-    form: {
-      title: 'Title'
-      description: 'Description'
-      imagesDescription: '* Drag and drop images to reorder them, max 5 images'
-      price: 'Price'
-      priceDescription: 'Price must be up to 100 000 $'
-      submitBtn: 'Update'
-    }
-  }
-  ProfilePage: {
-    menu: {
-      title: 'Menu'
-      home: 'Home'
-      drawings: 'Drawings'
-    }
-    userInfo: {
-      name: 'Name'
-      email: 'Email'
-      roles: 'Roles'
-    }
-  }
-  LocaleSwitcher: {
-    label: 'Change language'
-    locale: '{locale, select, ru {RU} en {EN} other {Unknown}}'
-  }
-  Manifest: {
-    name: 'art-works'
-  }
-  Navigation: {
-    home: 'Home'
-    drawings: 'Drawings'
-    back: 'back'
-  }
-  UI: {
-    'search-input': {
-      placeholder: 'Search'
-    }
-  }
-}
-export default messages
+};
+export default messages;
