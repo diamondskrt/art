@@ -1,2 +1,2 @@
-import { Home } from '~/pages/home'
+import { Home } from '~/views/home'
 export default Home

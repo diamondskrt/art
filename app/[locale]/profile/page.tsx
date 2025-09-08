@@ -1,2 +1,2 @@
-import { Profile } from '~/pages/profile'
+import { Profile } from '~/views/profile'
 export default Profile

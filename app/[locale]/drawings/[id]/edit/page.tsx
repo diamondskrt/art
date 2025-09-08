@@ -1,3 +1,3 @@
-import { DrawingEdit } from '~/pages/drawings'
+import { DrawingEdit } from '~/views/drawings'
 
 export default DrawingEdit

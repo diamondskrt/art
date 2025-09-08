@@ -1,3 +1,3 @@
-import { SignIn } from '~/pages/auth'
+import { SignIn } from '~/views/auth'
 
 export default SignIn

@@ -40,7 +40,7 @@ export function Header() {
           <LocaleSwitcher className="min-w-[80px]" />
           <Profile />
           <DrawerMenu navigationLinks={navigationLinks}>
-            <Button variant="outline" className="cursor-pointer">
+            <Button variant="outline" className="md:hidden cursor-pointer">
               <MenuIcon className="w-4 h-4" />
             </Button>
           </DrawerMenu>

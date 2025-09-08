@@ -1,3 +1,3 @@
-import { DrawingShow } from '~/pages/drawings'
+import { DrawingShow } from '~/views/drawings'
 
 export default DrawingShow
