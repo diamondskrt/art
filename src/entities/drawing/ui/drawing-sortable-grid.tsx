@@ -2,8 +2,8 @@
 
 import { DndContext, DragEndEvent, closestCenter } from '@dnd-kit/core'
 import {
-  arrayMove,
   SortableContext,
+  arrayMove,
   rectSortingStrategy,
 } from '@dnd-kit/sortable'
 import { useEffect, useState } from 'react'

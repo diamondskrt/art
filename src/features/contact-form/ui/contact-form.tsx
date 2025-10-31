@@ -4,11 +4,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 
-import { Form, FormFieldItem, Button } from '~/shared/ui'
+import { Button, Form, FormFieldItem } from '~/shared/ui'
 import { cn } from '~/shared/utils'
 
 import { contactFormSchema, defaultValues } from '../config'
-import { ContactFormProps, ContactFormPayload } from '../model'
+import { ContactFormPayload, ContactFormProps } from '../model'
 
 export function ContactForm({ className, ...props }: ContactFormProps) {
   const form = useForm<ContactFormPayload>({

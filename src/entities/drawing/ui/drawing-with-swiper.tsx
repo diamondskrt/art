@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl'
 
 import type { Drawing } from '~/entities/drawing'
 import { Typography } from '~/shared/ui'
-import { formatPrice, cn } from '~/shared/utils'
+import { cn, formatPrice } from '~/shared/utils'
 
 import { DrawingSwiper } from './drawing-swiper'
 

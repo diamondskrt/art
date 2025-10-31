@@ -1,10 +1,10 @@
 'use client'
 
 import { useParams } from 'next/navigation'
-import { useLocale, useTranslations, Locale } from 'next-intl'
+import { Locale, useLocale, useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 
-import { usePathname, useRouter, routing } from '~/shared/lib'
+import { routing, usePathname, useRouter } from '~/shared/lib'
 import { Select } from '~/shared/ui'
 import { cn } from '~/shared/utils'
 

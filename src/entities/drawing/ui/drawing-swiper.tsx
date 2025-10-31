@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import type { Swiper as SwiperType } from 'swiper'
-import { Thumbs, FreeMode } from 'swiper/modules'
+import { FreeMode, Thumbs } from 'swiper/modules'
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'

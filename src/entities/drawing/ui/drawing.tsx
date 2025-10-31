@@ -1,6 +1,6 @@
 import type { Drawing } from '~/entities/drawing'
 import { OImage, Typography } from '~/shared/ui'
-import { formatPrice, cn } from '~/shared/utils'
+import { cn, formatPrice } from '~/shared/utils'
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   drawing: Drawing

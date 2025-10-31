@@ -1,4 +1,4 @@
-import { TwitterIcon, InstagramIcon, FacebookIcon } from 'lucide-react'
+import { FacebookIcon, InstagramIcon, TwitterIcon } from 'lucide-react'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
