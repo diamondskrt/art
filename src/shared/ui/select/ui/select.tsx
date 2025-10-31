@@ -5,12 +5,12 @@ import { cn } from '~/shared/utils'
 import { SelectProps } from '../model'
 
 import {
-  SelectTrigger,
-  Select as SelectPrimitive,
   SelectContent,
   SelectGroup,
   SelectItem,
   SelectLabel,
+  Select as SelectPrimitive,
+  SelectTrigger,
   SelectValue,
 } from './select-items'
 

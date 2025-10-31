@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { toast } from 'sonner'
 
-import { MAX_FILE_SIZE, MAX_FILES } from '~/shared/config'
+import { MAX_FILES, MAX_FILE_SIZE } from '~/shared/config'
 import { Button } from '~/shared/ui'
 
 import { UploaderProps } from '../model'

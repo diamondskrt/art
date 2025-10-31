@@ -5,8 +5,8 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
 import { LoginPayload, loginFormSchema } from '~/entities/user'
-import { Link, useRouter, useAuth } from '~/shared/lib'
-import { Button, Typography, Form, FormFieldItem } from '~/shared/ui'
+import { Link, useAuth, useRouter } from '~/shared/lib'
+import { Button, Form, FormFieldItem, Typography } from '~/shared/ui'
 
 import { defaultValues } from '../config'
 

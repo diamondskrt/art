@@ -3,9 +3,9 @@
 import { useEffect, useMemo } from 'react'
 
 import {
-  useGetDrawings,
   DrawingComponent,
   DrawingSkeleton,
+  useGetDrawings,
 } from '~/entities/drawing'
 import { Link } from '~/shared/lib'
 import {

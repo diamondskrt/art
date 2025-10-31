@@ -6,8 +6,8 @@ import {
   Pagination as PaginationComponent,
   PaginationContent,
   PaginationItem,
-  PaginationPrevious,
   PaginationNext,
+  PaginationPrevious,
 } from './pagination-items'
 
 export const Pagination = ({

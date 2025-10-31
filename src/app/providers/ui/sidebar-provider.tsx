@@ -1,16 +1,16 @@
 'use client'
 
-import { useState, useCallback, useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useIsMobile } from '~/shared/hooks'
 import {
-  SIDEBAR_COOKIE_NAME,
   SIDEBAR_COOKIE_MAX_AGE,
+  SIDEBAR_COOKIE_NAME,
+  SIDEBAR_KEYBOARD_SHORTCUT,
   SIDEBAR_WIDTH,
   SIDEBAR_WIDTH_ICON,
-  SIDEBAR_KEYBOARD_SHORTCUT,
-  SidebarContextProps,
   SidebarContext,
+  SidebarContextProps,
   TooltipProvider,
 } from '~/shared/ui'
 import { cn } from '~/shared/utils'

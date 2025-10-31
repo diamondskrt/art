@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { loginFormSchema, ROLES } from '../config'
+import { ROLES, loginFormSchema } from '../config'
 
 type Role = (typeof ROLES)[keyof typeof ROLES]
 

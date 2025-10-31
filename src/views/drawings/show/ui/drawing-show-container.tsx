@@ -5,10 +5,10 @@ import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 
 import {
-  useDeleteDrawing,
-  useGetDrawing,
   DrawingWithSwiper,
   DrawingWithSwiperSkeleton,
+  useDeleteDrawing,
+  useGetDrawing,
 } from '~/entities/drawing'
 import { useRouter } from '~/shared/lib'
 import { BreadcrumbItem, Breadcrumbs } from '~/shared/ui'

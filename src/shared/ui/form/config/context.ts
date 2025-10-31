@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-import { FormItemContextValue, FormFieldContextValue } from '../model'
+import { FormFieldContextValue, FormItemContextValue } from '../model'
 
 const FormFieldContext = createContext<FormFieldContextValue>(
   {} as FormFieldContextValue

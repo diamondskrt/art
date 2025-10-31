@@ -1,13 +1,13 @@
 'use client'
 
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useEffect, useMemo, useState } from 'react'
 import { useDebounce } from 'use-debounce'
 
 import { Input, InputProps } from '~/shared/ui'
 
-import { SEARCH_PARAM_KEY, DEFAULT_DELAY } from '../config'
+import { DEFAULT_DELAY, SEARCH_PARAM_KEY } from '../config'
 
 type SearchInputProps = InputProps & {
   paramKey?: string

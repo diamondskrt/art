@@ -5,16 +5,16 @@ import { Slot } from '@radix-ui/react-slot'
 import * as React from 'react'
 import {
   Controller,
-  FormProvider,
   type ControllerProps,
   type FieldPath,
   type FieldValues,
+  FormProvider,
 } from 'react-hook-form'
 
 import { Label } from '~/shared/ui'
 import { cn } from '~/shared/utils'
 
-import { FormItemContext, FormFieldContext } from '../config'
+import { FormFieldContext, FormItemContext } from '../config'
 import { useFormField } from '../lib'
 
 const Form = FormProvider

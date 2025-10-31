@@ -1,8 +1,8 @@
 import {
   BreadcrumbItem,
-  DrawerTitleHidden,
   Drawer,
   DrawerContent,
+  DrawerTitleHidden,
   DrawerTrigger,
 } from '~/shared/ui'
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback } from 'react'
 
 import { DEFAULT_LIMIT, DEFAULT_PAGE } from '../config'

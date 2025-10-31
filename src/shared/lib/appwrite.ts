@@ -1,4 +1,4 @@
-import { Client, Account, Databases, Storage } from 'appwrite'
+import { Account, Client, Databases, Storage } from 'appwrite'
 
 const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID as string
 const BUCKET_ID = process.env.NEXT_PUBLIC_APPWRITE_BUCKET_ID as string
