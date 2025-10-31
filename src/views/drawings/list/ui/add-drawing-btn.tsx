@@ -11,7 +11,7 @@ export function AddDrawingBtn() {
 
   const t = useTranslations('ListDrawingsPage.actions')
 
-  if (user && !user?.roles.includes('admin')) {
+  if (!user?.roles.includes('admin')) {
     return null
   }
 

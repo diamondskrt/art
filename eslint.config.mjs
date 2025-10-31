@@ -10,17 +10,25 @@ const compat = new FlatCompat({
 })
 
 const eslintConfig = [
-  ...compat.config({
-    extends: [
-      'next/core-web-vitals',
-      'next/typescript',
-      'plugin:import/recommended',
-      'plugin:import/typescript',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:react/recommended',
-      'plugin:react-hooks/recommended',
+  ...compat.extends(
+    'next/core-web-vitals',
+    'next/typescript',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'prettier'
+  ),
+  {
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "out/**",
+      "build/**",
+      "next-env.d.ts",
+      "src/shared/lib/i18n/messages/*.d.json.ts",
     ],
-    plugins: ['prettier', '@typescript-eslint', 'react', 'react-hooks'],
     settings: {
       react: {
         version: 'detect',
@@ -33,9 +41,6 @@ const eslintConfig = [
       },
     },
     rules: {
-      // Prettier
-      'prettier/prettier': 'error',
-
       // TypeScript
       '@typescript-eslint/no-unused-vars': [
         'warn',
@@ -50,7 +55,16 @@ const eslintConfig = [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
 
-      // Import
+      // Imports Sorting
+      "sort-imports": [
+        "error",
+        {
+          ignoreDeclarationSort: true,
+          ignoreCase: false,
+        },
+      ],
+
+      // Imports Ordering
       'import/order': [
         'error',
         {
@@ -97,12 +111,6 @@ const eslintConfig = [
       // Standard rules
       'no-console': ['error', { allow: ['warn', 'error'] }],
       'no-debugger': 'error',
-    },
-  }),
-  {
-    files: ['**/*.d.json.ts'],
-    rules: {
-      'prettier/prettier': 'off',
     },
   },
 ]

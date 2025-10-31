@@ -1,3 +1,11 @@
+# Art Gallery
+
+## About
+This is a modern web application for an art gallery that showcases various artworks and exhibitions. The platform allows users to explore different art pieces, learn about artists, and stay updated with upcoming exhibitions.
+
+## Tech Stack
+Next.js 14, TypeScript, Tailwind CSS, Appwrite, Tanstack React Query, React Hook Form, Zod, I18n (Next-Intl), DND Kit
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

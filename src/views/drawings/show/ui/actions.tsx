@@ -20,7 +20,7 @@ export function DrawingShowActions({
   const t = useTranslations('ShowDrawingPage.actions')
   const { user, isLoading: isAuthLoading } = useAuth()
 
-  if (user && !user?.roles.includes('admin')) {
+  if (!user?.roles.includes('admin')) {
     return null
   }
 
