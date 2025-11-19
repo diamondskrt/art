@@ -36,4 +36,4 @@ const removeKey = async (key: string) => {
   await localforage.removeItem(key)
 }
 
-export { setKey, getKey, removeKey, defaultTTL }
+export { defaultTTL, getKey, removeKey, setKey }

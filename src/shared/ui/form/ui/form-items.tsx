@@ -11,7 +11,7 @@ import {
   FormProvider,
 } from 'react-hook-form'
 
-import { Label } from '~/shared/ui'
+import { Label, Typography } from '~/shared/ui'
 import { cn } from '~/shared/utils'
 
 import { FormFieldContext, FormItemContext } from '../config'
@@ -85,10 +85,11 @@ function FormDescription({ className, ...props }: React.ComponentProps<'p'>) {
   const { formDescriptionId } = useFormField()
 
   return (
-    <p
+    <Typography
+      variant="small"
       data-slot="form-description"
       id={formDescriptionId}
-      className={cn('text-muted-foreground text-sm', className)}
+      className={cn('text-muted-foreground', className)}
       {...props}
     />
   )
@@ -116,10 +117,10 @@ function FormMessage({ className, ...props }: React.ComponentProps<'p'>) {
 
 export {
   Form,
-  FormItem,
-  FormLabel,
   FormControl,
   FormDescription,
-  FormMessage,
   FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
 }

@@ -22,14 +22,14 @@ export function DrawingList({ params }: Props) {
 
   const breadcrumbItems: BreadcrumbItem[] = [
     { label: t('breadcrumbs.home'), href: '/home' },
-    { label: t('breadcrumbs.drawings'), href: '/drawings/list' },
+    { label: t('breadcrumbs.drawings') },
   ]
 
   return (
     <AppLayout>
-      <div className="section">
+      <section>
         <div className="container">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+          <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <Breadcrumbs items={breadcrumbItems} />
             <AddDrawingBtn />
           </div>
@@ -37,7 +37,7 @@ export function DrawingList({ params }: Props) {
             <DrawingsGallery />
           </Suspense>
         </div>
-      </div>
+      </section>
     </AppLayout>
   )
 }

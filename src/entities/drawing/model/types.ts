@@ -22,8 +22,8 @@ type GetDrawingsParams = {
 
 export type {
   AddDrawingPayload,
-  UpdateDrawingPayload,
   Drawing,
   DrawingImage,
   GetDrawingsParams,
+  UpdateDrawingPayload,
 }

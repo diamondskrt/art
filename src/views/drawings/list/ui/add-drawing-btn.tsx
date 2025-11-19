@@ -16,7 +16,7 @@ export function AddDrawingBtn() {
   }
 
   return isLoading ? (
-    <Skeleton className="w-full md:w-[180px] h-9" />
+    <Skeleton className="h-9 w-full md:w-[180px]" />
   ) : (
     <Button asChild className="cursor-pointer">
       <Link href="/drawings/add">

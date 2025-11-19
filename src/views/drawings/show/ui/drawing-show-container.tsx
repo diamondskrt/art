@@ -48,7 +48,7 @@ export function DrawingShowContainer() {
 
   return (
     <div className="container">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+      <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
         <Breadcrumbs items={breadcrumbItems} />
         <DrawingShowActions
           drawingId={drawingId}

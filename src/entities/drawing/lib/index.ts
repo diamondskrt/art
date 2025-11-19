@@ -1,5 +1,6 @@
 export { useAddDrawing } from './useAddDrawing'
-export { useGetDrawings } from './useGetDrawings'
-export { useGetDrawing } from './useGetDrawing'
 export { useDeleteDrawing } from './useDeleteDrawing'
+export { useDrawingDimension } from './useDrawingDimension'
+export { useGetDrawing } from './useGetDrawing'
+export { useGetDrawings } from './useGetDrawings'
 export { useUpdateDrawing } from './useUpdateDrawing'

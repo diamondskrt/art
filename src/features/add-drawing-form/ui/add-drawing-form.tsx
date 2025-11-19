@@ -13,16 +13,17 @@ import {
   useAddDrawing,
 } from '~/entities/drawing'
 import { useRouter } from '~/shared/lib'
-import { Button, Form, FormFieldItem } from '~/shared/ui'
+import { Button, Form, FormFieldItem, Typography } from '~/shared/ui'
 
 import { defaultValues } from '../config'
 
 export function AddDrawingForm() {
   const router = useRouter()
 
-  const t = useTranslations('AddDrawingPage')
+  const tForm = useTranslations('AddDrawingPage.form')
+  const tDimension = useTranslations('Dimension')
 
-  const { mutate: addDrawing, isPending } = useAddDrawing()
+  const { mutateAsync: addDrawing, isPending } = useAddDrawing()
 
   const form = useForm<AddDrawingPayload>({
     resolver: zodResolver(addDrawingFormSchema),
@@ -45,7 +46,7 @@ export function AddDrawingForm() {
       <FormFieldItem
         control={form.control}
         name="images"
-        render={(field) => (
+        render={({ field }) => (
           <DrawingSortableGrid
             initialImages={field.value as DrawingImage[]}
             onChangeAction={(items) => {
@@ -54,26 +55,57 @@ export function AddDrawingForm() {
           />
         )}
       />
-      <div className="w-full md:w-1/3 lg:w-[350px] space-y-4">
+      <div className="w-full space-y-4 md:w-1/3 lg:w-[350px]">
         <FormFieldItem
           control={form.control}
           name="title"
-          placeholder={t('form.title')}
+          label={tForm('title')}
+          placeholder={tForm('title')}
         />
         <FormFieldItem
           control={form.control}
           name="description"
-          placeholder={t('form.description')}
+          label={tForm('description')}
+          placeholder={tForm('description')}
         />
+        <div className="dimensions">
+          <div className="flex items-center gap-2">
+            <FormFieldItem
+              control={form.control}
+              name="length"
+              type="number"
+              label={tDimension('length')}
+              placeholder={tDimension('length')}
+            />
+            <FormFieldItem
+              control={form.control}
+              name="width"
+              type="number"
+              label={tDimension('width')}
+              placeholder={tDimension('width')}
+            />
+            <FormFieldItem
+              control={form.control}
+              name="depth"
+              type="number"
+              label={tDimension('depth')}
+              placeholder={tDimension('depth')}
+            />
+          </div>
+          <Typography variant="small" className="text-muted-foreground">
+            {tForm('dimensionHint')}
+          </Typography>
+        </div>
         <FormFieldItem
           control={form.control}
           name="price"
-          placeholder={t('form.price')}
-          type="number"
-          description={t('form.priceDescription')}
+          type="price"
+          label={tForm('price')}
+          placeholder={tForm('price')}
+          description={tForm('priceDescription')}
         />
         <Button type="submit" disabled={isPending} className="cursor-pointer">
-          {t('form.submitBtn')}
+          {tForm('submitBtn')}
         </Button>
       </div>
     </Form>

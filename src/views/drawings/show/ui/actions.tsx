@@ -26,15 +26,15 @@ export function DrawingShowActions({
 
   if (isLoading || isAuthLoading) {
     return (
-      <div className="flex flex-col md:flex-row gap-4">
-        <Skeleton className="w-full md:w-[140px] h-9" />
-        <Skeleton className="w-full md:w-[140px] h-9" />
+      <div className="flex flex-col gap-4 md:flex-row">
+        <Skeleton className="h-9 w-full md:w-[140px]" />
+        <Skeleton className="h-9 w-full md:w-[140px]" />
       </div>
     )
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-4">
+    <div className="flex flex-col gap-4 md:flex-row">
       {drawingId && (
         <Button variant="outline" asChild>
           <Link
@@ -43,14 +43,14 @@ export function DrawingShowActions({
               params: { id: drawingId },
             }}
           >
-            <PencilIcon className="w-4 h-4" />
+            <PencilIcon className="h-4 w-4" />
             {t('edit')}
           </Link>
         </Button>
       )}
       <DeletionModal onDeleteAction={onDeleteAction}>
         <Button variant="destructive" className="cursor-pointer">
-          <TrashIcon className="w-4 h-4" />
+          <TrashIcon className="h-4 w-4" />
           {t('delete')}
         </Button>
       </DeletionModal>

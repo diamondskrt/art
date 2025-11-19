@@ -12,7 +12,6 @@ import { MAX_FILES } from '~/shared/config'
 import { Uploader } from '~/shared/ui'
 
 import { DrawingImage } from '../model'
-
 import { DrawingSortableImageItem } from './drawing-sortable-image-item'
 
 type SortableGridProps = {
@@ -80,7 +79,7 @@ export function DrawingSortableGrid({
         items={items.map((item) => item.$id)}
         strategy={rectSortingStrategy}
       >
-        <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 xl:grid-cols-5">
           {items.map((item) => (
             <DrawingSortableImageItem
               key={item.$id}
@@ -89,8 +88,8 @@ export function DrawingSortableGrid({
             />
           ))}
           {diff > 0 && (
-            <div className="relative aspect-square border-dashed border border-gray-300 rounded overflow-hidden">
-              <div className="flex items-center justify-center h-full">
+            <div className="relative aspect-square overflow-hidden rounded border border-dashed border-gray-300">
+              <div className="flex h-full items-center justify-center">
                 <Uploader maxFiles={diff} onUploadAction={handleUpload} />
               </div>
             </div>

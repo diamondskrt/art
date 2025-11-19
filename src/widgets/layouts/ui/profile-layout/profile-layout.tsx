@@ -9,7 +9,7 @@ function ProfileLayout({ children }: Props) {
   return (
     <>
       <ProfileSidebar />
-      <div className="flex flex-col flex-1 px-4">
+      <div className="flex flex-1 flex-col px-4">
         <ProfileHeader />
         {children}
       </div>

@@ -14,20 +14,24 @@ import {
   useUpdateDrawing,
 } from '~/entities/drawing'
 import { useRouter } from '~/shared/lib'
-import { Button, Form, FormFieldItem } from '~/shared/ui'
+import { Button, Form, FormFieldItem, Typography } from '~/shared/ui'
 
 export function UpdateDrawingForm({ drawing }: { drawing: Drawing }) {
   const router = useRouter()
 
-  const t = useTranslations('EditDrawingPage.form')
+  const tForm = useTranslations('EditDrawingPage.form')
+  const tDimension = useTranslations('Dimension')
 
-  const { mutate: updateDrawing, isPending } = useUpdateDrawing()
+  const { mutateAsync: updateDrawing, isPending } = useUpdateDrawing()
 
   const defaultValues = {
     $id: drawing.$id,
     images: drawing.images,
     title: drawing.title,
     description: drawing.description,
+    length: drawing.length,
+    width: drawing.width,
+    depth: drawing.depth,
     price: drawing.price,
   }
 
@@ -53,7 +57,7 @@ export function UpdateDrawingForm({ drawing }: { drawing: Drawing }) {
         <FormFieldItem
           control={form.control}
           name="images"
-          render={(field) => (
+          render={({ field }) => (
             <DrawingSortableGrid
               initialImages={field.value as DrawingImage[]}
               onChangeAction={(items) => {
@@ -62,30 +66,61 @@ export function UpdateDrawingForm({ drawing }: { drawing: Drawing }) {
             />
           )}
         />
-        <div className="w-full md:w-1/3 lg:w-[350px] space-y-4">
+        <div className="w-full space-y-4 md:w-1/3 lg:w-[350px]">
           <FormFieldItem
             control={form.control}
             name="title"
-            placeholder={t('title')}
+            label={tForm('title')}
+            placeholder={tForm('title')}
           />
           <FormFieldItem
             control={form.control}
             name="description"
-            placeholder={t('description')}
+            label={tForm('description')}
+            placeholder={tForm('description')}
           />
+          <div className="dimensions">
+            <div className="flex items-center gap-2">
+              <FormFieldItem
+                control={form.control}
+                name="length"
+                type="number"
+                label={tDimension('length')}
+                placeholder={tDimension('length')}
+              />
+              <FormFieldItem
+                control={form.control}
+                name="width"
+                type="number"
+                label={tDimension('width')}
+                placeholder={tDimension('width')}
+              />
+              <FormFieldItem
+                control={form.control}
+                name="depth"
+                type="number"
+                label={tDimension('depth')}
+                placeholder={tDimension('depth')}
+              />
+            </div>
+            <Typography variant="small" className="text-muted-foreground">
+              {tForm('dimensionHint')}
+            </Typography>
+          </div>
           <FormFieldItem
             control={form.control}
             name="price"
-            placeholder={t('price')}
-            type="number"
-            description={t('priceDescription')}
+            type="price"
+            label={tForm('price')}
+            placeholder={tForm('price')}
+            description={tForm('priceDescription')}
           />
           <Button
             type="submit"
             disabled={isPending}
-            className="cursor-pointer w-full md:w-auto"
+            className="w-full cursor-pointer md:w-auto"
           >
-            {t('submitBtn')}
+            {tForm('submitBtn')}
           </Button>
         </div>
       </Form>

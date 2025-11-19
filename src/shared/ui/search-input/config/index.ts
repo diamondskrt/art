@@ -1,1 +1,1 @@
-export { SEARCH_PARAM_KEY, DEFAULT_DELAY } from './constants'
+export { DEFAULT_DELAY, SEARCH_PARAM_KEY } from './constants'

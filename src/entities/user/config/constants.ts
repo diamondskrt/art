@@ -16,4 +16,4 @@ const ROLES = {
   USER: 'user',
 }
 
-export { loginFormSchema, USER_KEY, ROLES }
+export { ROLES, USER_KEY, loginFormSchema }

@@ -11,15 +11,10 @@ import {
 
 import { AddDrawingPayload, Drawing, GetDrawingsParams } from '../model'
 
-const addDrawing = async ({
-  title,
-  description,
-  price,
-  images,
-}: AddDrawingPayload) => {
+const addDrawing = async (drawing: AddDrawingPayload) => {
   try {
     const uploadedImageIds = await Promise.all(
-      images
+      drawing.images
         .filter((image) => image.file)
         .map(async (image) => {
           const arrayBuffer = await image.file!.arrayBuffer()
@@ -57,9 +52,12 @@ const addDrawing = async ({
       DRAWINGS_COLLECTION_ID,
       ID.unique(),
       {
-        title,
-        description,
-        price,
+        title: drawing.title,
+        description: drawing.description,
+        length: drawing.length,
+        width: drawing.width,
+        depth: drawing.depth,
+        price: drawing.price,
         images: uploadedImageIds,
       }
     )
@@ -248,6 +246,9 @@ const updateDrawing = async (drawing: Drawing): Promise<Drawing> => {
         title: drawing.title,
         description: drawing.description,
         price: drawing.price,
+        length: drawing.length,
+        width: drawing.width,
+        depth: drawing.depth,
         images: finalImageIds,
       }
     )
@@ -258,4 +259,4 @@ const updateDrawing = async (drawing: Drawing): Promise<Drawing> => {
   }
 }
 
-export { addDrawing, getDrawings, getDrawing, deleteDrawing, updateDrawing }
+export { addDrawing, deleteDrawing, getDrawing, getDrawings, updateDrawing }

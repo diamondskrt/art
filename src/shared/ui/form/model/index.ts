@@ -1,6 +1,7 @@
 export type {
   FormFieldContextValue,
-  FormItemContextValue,
+  FormFieldInputProps,
   FormFieldItemProps,
+  FormItemContextValue,
   FormProps,
 } from './types'

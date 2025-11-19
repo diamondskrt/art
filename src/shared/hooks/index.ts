@@ -1,1 +1,2 @@
-export { useIsMobile } from './use-mobile'
+export { useDimension } from './useDimension'
+export { useIsMobile } from './useMobile'

@@ -7,7 +7,6 @@ import { Link } from '~/shared/lib'
 import { cn } from '~/shared/utils'
 
 import { BreadcrumbsProps } from '../model'
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -37,7 +36,7 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
             </BreadcrumbItem>
             {!isLastIndex(index) && (
               <BreadcrumbSeparator className="[&>svg]:size-3">
-                <SlashIcon className="-rotate-[15deg] mt-1" />
+                <SlashIcon className="mt-1 -rotate-[15deg]" />
               </BreadcrumbSeparator>
             )}
           </Fragment>

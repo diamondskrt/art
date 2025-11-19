@@ -24,10 +24,6 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }))
-}
-
 export async function generateMetadata(props: Omit<Props, 'children'>) {
   const { locale } = await props.params
 
@@ -36,6 +32,10 @@ export async function generateMetadata(props: Omit<Props, 'children'>) {
   return {
     title: t('title'),
   }
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }))
 }
 
 export default async function LocaleLayout({

@@ -1,1 +1,1 @@
-export { loginUser, getCurrentUser, logoutUser } from './api'
+export { getCurrentUser, loginUser, logoutUser } from './api'

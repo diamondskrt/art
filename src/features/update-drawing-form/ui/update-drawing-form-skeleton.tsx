@@ -7,15 +7,15 @@ type Props = React.HTMLAttributes<HTMLDivElement>
 export function UpdateDrawingFormSkeleton(props: Props) {
   return (
     <div className="space-y-4" {...props}>
-      <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 xl:grid-cols-5">
         {Array.from({ length: 4 }).map((_, index) => (
-          <Skeleton key={index} className="w-full aspect-square" />
+          <Skeleton key={index} className="aspect-square w-full" />
         ))}
       </div>
-      <Skeleton className="w-full md:w-[300px] h-9" />
-      <Skeleton className="w-full md:w-[300px] h-9" />
-      <Skeleton className="w-full md:w-[300px] h-9" />
-      <Skeleton className="w-full md:w-[140px] h-9" />
+      <Skeleton className="h-9 w-full md:w-[300px]" />
+      <Skeleton className="h-9 w-full md:w-[300px]" />
+      <Skeleton className="h-9 w-full md:w-[300px]" />
+      <Skeleton className="h-9 w-full md:w-[140px]" />
     </div>
   )
 }

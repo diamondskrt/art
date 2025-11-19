@@ -1,11 +1,9 @@
 import { FieldValues } from 'react-hook-form'
-import { NumericFormat } from 'react-number-format'
 
-import { Input } from '~/shared/ui'
 import { cn } from '~/shared/utils'
 
 import { FormFieldItemProps } from '../model'
-
+import { FormFieldInput } from './form-field-input'
 import {
   FormControl,
   FormDescription,
@@ -30,29 +28,18 @@ function FormFieldItem<T extends FieldValues>({
     <FormField
       control={control}
       name={name}
-      render={({ field, fieldState }) => (
+      render={(renderParams) => (
         <FormItem {...props} className={cn('w-full', className)}>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
             {render ? (
-              render(field)
-            ) : type === 'number' ? (
-              <NumericFormat
-                value={field.value}
-                customInput={Input}
-                thousandSeparator=" "
-                suffix=" $"
-                allowNegative={false}
-                allowLeadingZeros={false}
-                placeholder={placeholder}
-                onValueChange={({ floatValue }) => {
-                  field.onChange(floatValue)
-                }}
-                isAllowed={({ floatValue }) => (floatValue ?? 0) <= 100000}
-                aria-invalid={Boolean(fieldState.error)}
-              />
+              render(renderParams)
             ) : (
-              <Input type={type} placeholder={placeholder} {...field} />
+              <FormFieldInput
+                type={type}
+                placeholder={placeholder}
+                {...renderParams}
+              />
             )}
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}

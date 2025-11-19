@@ -38,7 +38,7 @@ export function Uploader({
     <div {...getRootProps()}>
       <input {...getInputProps()} />
       <Button size="icon" className="cursor-pointer">
-        <UploadIcon className="w-4 h-4" />
+        <UploadIcon className="h-4 w-4" />
       </Button>
       {isDragActive && (
         <p className="text-sm text-gray-500">

@@ -6,21 +6,30 @@ declare const messages: {
     "title": "Art Works"
   },
   "IndexPage": {
-    "bio": "<strong>Kanzafarova Elvira</strong> documents climate change with pastel drawings. She travels to remote regions of the world to collect images and inspiration for her work, which is exhibited worldwide. She has flown with NASA on several Operation IceBridge missions over Antarctica, Greenland, and Arctic Canada. She was featured on CBS Sunday Morning, CNN, PBS, and BBC. She delivered a TEDTalk, and spoke at Amazon, Google, and NASA’s Goddard Space Flight Center, exhibited in Banksy’s Dismaland, and was the artist-in-residence aboard the National Geographic Explorer in Antarctica. Forman curated the first ever, permanent, polar art exhibitions aboard Lindblad Expeditions National Geographic Endurance and the National Geographic Resolution. Her works have appeared in publications such as The New York Times, National Geographic, The Wall Street Journal, and the Smithsonian Magazine. Forman currently works and resides in upstate New York, and is represented by Winston Wächter Fine Art in New York, NY and Seattle, WA.",
+    "bio": {
+      "title": "Art That Speaks to Your Soul",
+      "description": "<p>Each painting is more than just an image. It's a captured emotion, a quiet dialogue, a personal universe. I create works that don't just decorate walls—they become a part of your mood, inspire you, and fill your space with warmth.</p><br></br><p>What you'll find in my collection:</p><ul><li><icon></icon> Original artworks that carry energy and a story.</li><li><icon></icon> A unique fusion of techniques, where texture meets color.</li><li><icon></icon> That perfect accent piece that will complete and define your interior.</li></ul><br></br><p>Find your story. Explore the collection and let the art speak.</p>"
+    },
     "drawings": {
       "title": "Drawings",
       "viewAllBtn": "View all"
     },
     "contacts": {
       "title": "Contacts",
-      "text1": "For general enquiries, images of available works, and a price list, email my studio manager at xan@zariaforman.com.",
-      "text2": "Limited edition prints of my work are available exclusively at ArtStar.com.",
+      "description": "For general enquiries, images of available works, and a price list, email my studio manager at elvilaart@gmail.com.",
       "form": {
         "name": "Name",
         "email": "Email",
         "subscribeBtn": "Subscribe"
       }
     }
+  },
+  "AboutPage": {
+    "breadcrumbs": {
+      "home": "Home",
+      "about": "About"
+    },
+    "html": "<h4>Elvi | Fairy-Tale Artist</h4><p>My name is Elvi. I was born and raised in the heart of Bashkortostan, where majestic mountains meet boundless forests, and clear rivers whisper ancient legends. It is here, in this kingdom of nature, that I learned to see magic in every moment. Since childhood, the world has been a living fairy tale for me: patterns on the wallpaper turned into mysterious paths, and cracks on the ceiling became constellations.</p><p>After graduating from college with a degree in “Clothing Technology and Design,” I directed my sense of form and texture into fine art. Each painting is not just an image but a capsule filled with atmosphere — a personal story you can dive into.</p><br></br><h4>A Collection of Miniature Worlds</h4><p>Although I create works in different formats, it is the miniatures (20×20 cm, 10×15 cm) that hold a special place in my heart. In the hustle of the big city, it's important to have your own corner of peace and inspiration — and that’s exactly why these little canvases are born.</p><br></br><h4>Why Are Miniatures Perfect?</h4><ul><li>— A pocket universe: Within just a few centimeters, I place an entire world with its own story, light, and harmony.</li><li>— Art for any interior: The perfect solution for a cozy nook on a shelf, a work desk, a bedside area, or a small wall.</li><li>— A unique accent: Such a piece doesn’t shout loudly — it gently invites you to come closer, explore the details, and discover your own tale.</li><li>— Accessible luxury: Owning an original piece of art is now easier than you think.</li></ul><br></br><h4>In my works you will find:</h4><ul><li><icon></icon> Cozy interiors with warm, living light that seems to invite you inside, warming and calming you.</li><li><icon></icon> Bold abstractions where reality dances with the subconscious, awakening imagination and giving space for thought.</li></ul><br></br><p>Each of these miniatures is born in my studio, filled with the aroma of coffee and oil paints. I put a piece of my soul into them so that you can feel this warmth wherever you need it most.</p><hr></hr><p>Ready to bring a little magic into your home?</p><br></br><p>Your personal fairy tale is already waiting for you in my shop “ElviLa.”</p><br></br><p>Go to the catalog to choose the one piece that will speak to you.</p><br></br><p><em>P.S. The perfect long-lasting gift — a miniature painting with a personal message inside. It’s more than art — it’s an emotion.</em></p>"
   },
   "AddDrawingPage": {
     "breadcrumbs": {
@@ -32,8 +41,9 @@ declare const messages: {
       "title": "Title",
       "description": "Description",
       "imagesDescription": "* Drag and drop images to reorder them, max 5 images",
+      "dimensionHint": "Specify the dimensions in centimeters",
       "price": "Price",
-      "priceDescription": "Price must be up to 100 000 $",
+      "priceDescription": "Price must be up to $ 100 000",
       "submitBtn": "Add"
     }
   },
@@ -76,8 +86,9 @@ declare const messages: {
       "title": "Title",
       "description": "Description",
       "imagesDescription": "* Drag and drop images to reorder them, max 5 images",
+      "dimensionHint": "Specify the dimensions in centimeters",
       "price": "Price",
-      "priceDescription": "Price must be up to 100 000 $",
+      "priceDescription": "Price must be up to $ 100 000",
       "submitBtn": "Update"
     }
   },
@@ -103,11 +114,21 @@ declare const messages: {
   "Navigation": {
     "home": "Home",
     "drawings": "Drawings",
+    "about": "About",
     "back": "back"
   },
   "UI": {
     "search-input": {
       "placeholder": "Search"
+    }
+  },
+  "Dimension": {
+    "length": "Length",
+    "width": "Width",
+    "depth": "Depth",
+    "value": {
+      "cm": "cm",
+      "in": "in"
     }
   }
 };

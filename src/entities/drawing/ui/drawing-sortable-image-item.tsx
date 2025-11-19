@@ -30,8 +30,8 @@ export const DrawingSortableImageItem = ({
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...props}>
-      <div className="relative aspect-square border-dashed border border-gray-300 rounded overflow-hidden">
-        <div className="aspect-square relative">
+      <div className="relative aspect-square overflow-hidden rounded border border-dashed border-gray-300">
+        <div className="relative aspect-square">
           <NextImage
             src={image.url}
             alt={image.name}
@@ -42,14 +42,14 @@ export const DrawingSortableImageItem = ({
             className="object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-background-foreground/30 flex justify-center items-center">
+        <div className="bg-background-foreground/30 absolute inset-0 flex items-center justify-center">
           <Button
             variant="outline"
             size="icon"
             className="cursor-pointer"
             onClick={() => onDeleteAction?.(image.$id)}
           >
-            <TrashIcon className="w-4 h-4" />
+            <TrashIcon className="h-4 w-4" />
           </Button>
         </div>
         <div className="actions absolute top-0 right-0 p-1">
@@ -59,7 +59,7 @@ export const DrawingSortableImageItem = ({
             className="cursor-move"
             {...listeners}
           >
-            <GripVertical className="w-4 h-4" />
+            <GripVertical className="h-4 w-4" />
           </Button>
         </div>
       </div>
