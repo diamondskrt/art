@@ -17,9 +17,9 @@ export function DrawingShow({ params }: Props) {
 
   return (
     <AppLayout>
-      <div className="section">
+      <section>
         <DrawingShowContainer />
-      </div>
+      </section>
     </AppLayout>
   )
 }

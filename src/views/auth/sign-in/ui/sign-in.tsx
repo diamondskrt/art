@@ -14,7 +14,7 @@ export function SignIn({ params }: Props) {
   setRequestLocale(locale)
 
   return (
-    <div className="flex flex-1 h-screen items-center justify-center">
+    <div className="flex h-screen flex-1 items-center justify-center">
       <SignInForm />
     </div>
   )

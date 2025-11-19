@@ -5,7 +5,6 @@ type OImageProps = React.ComponentProps<typeof Image>
 export function OImage({ alt, ...props }: OImageProps) {
   return (
     <Image
-      fill
       alt={alt || 'image'}
       placeholder="blur"
       blurDataURL="/assets/img/placeholder.webp"

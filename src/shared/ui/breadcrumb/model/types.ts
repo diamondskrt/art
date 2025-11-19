@@ -10,4 +10,4 @@ type BreadcrumbItem = {
   href?: ComponentProps<typeof Link>['href']
 }
 
-export type { BreadcrumbsProps, BreadcrumbItem }
+export type { BreadcrumbItem, BreadcrumbsProps }

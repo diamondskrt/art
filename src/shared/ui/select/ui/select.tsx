@@ -3,7 +3,6 @@ import get from 'lodash-es/get'
 import { cn } from '~/shared/utils'
 
 import { SelectProps } from '../model'
-
 import {
   SelectContent,
   SelectGroup,

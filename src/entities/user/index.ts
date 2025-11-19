@@ -1,4 +1,4 @@
-export { loginUser, getCurrentUser, logoutUser } from './api'
-export { useLogin, useLogout, useGetCurrentUser } from './lib'
-export { loginFormSchema, USER_KEY, ROLES } from './config'
-export type { User, LoginPayload, Role } from './model'
+export type { LoginPayload, Role, User } from './model'
+export { ROLES, USER_KEY, loginFormSchema } from './config'
+export { getCurrentUser, loginUser, logoutUser } from './api'
+export { useGetCurrentUser, useLogin, useLogout } from './lib'

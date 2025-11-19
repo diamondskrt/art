@@ -76,7 +76,7 @@ function PaginationPrevious({
       size="default"
       className={cn(
         'gap-1 px-2.5 sm:pl-2.5',
-        disabled && 'opacity-50 pointer-none',
+        disabled && 'pointer-none opacity-50',
         className
       )}
       {...props}
@@ -98,7 +98,7 @@ function PaginationNext({
       size="default"
       className={cn(
         'gap-1 px-2.5 sm:pr-2.5',
-        disabled && 'opacity-50 pointer-none',
+        disabled && 'pointer-none opacity-50',
         className
       )}
       {...props}
@@ -129,9 +129,9 @@ function PaginationEllipsis({
 export {
   Pagination,
   PaginationContent,
-  PaginationLink,
-  PaginationItem,
-  PaginationPrevious,
-  PaginationNext,
   PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
 }

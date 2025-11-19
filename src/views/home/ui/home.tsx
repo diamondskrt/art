@@ -22,26 +22,34 @@ export function Home({ params }: Props) {
 
   return (
     <AppLayout>
-      <div className="section">
-        <div className="container relative h-[500px]">
-          <OImage src="/assets/img/zaria-forman.webp" alt="zaria-forman" />
+      <section>
+        <div className="relative container h-[500px]">
+          <OImage
+            quality={100}
+            loading="eager"
+            src="/assets/img/zaria-forman.webp"
+            alt="zaria-forman"
+            fill
+          />
         </div>
-      </div>
-      <div className="section">
+      </section>
+      <section>
         <div className="container">
           <Typography variant="h4" className="mb-4 uppercase">
-            BIO and CV
+            {t('bio.title')}
           </Typography>
-          <Typography variant="p">
-            {t.rich('bio', {
-              strong: (chunks) => (
-                <Typography variant="strong">{chunks}</Typography>
-              ),
+          <div>
+            {t.rich('bio.description', {
+              br: () => <br />,
+              p: (chunks) => <Typography variant="p">{chunks}</Typography>,
+              ul: (chunks) => <ul className="ml-4">{chunks}</ul>,
+              li: (chunks) => <li>{chunks}</li>,
+              icon: (chunks) => <>✨ {chunks}</>,
             })}
-          </Typography>
+          </div>
         </div>
-      </div>
-      <div className="section">
+      </section>
+      <section>
         <div className="container">
           <Typography variant="h4" className="mb-4 uppercase">
             {t('drawings.title')}
@@ -51,19 +59,18 @@ export function Home({ params }: Props) {
             <Link href="/drawings/list">{t('drawings.viewAllBtn')}</Link>
           </Button>
         </div>
-      </div>
-      <div className="section">
+      </section>
+      <section>
         <div className="container">
           <div className="mb-4">
             <Typography variant="h4" className="mb-4 uppercase">
               {t('contacts.title')}
             </Typography>
-            <Typography variant="p">{t('contacts.text1')}</Typography>
-            <Typography variant="p">{t('contacts.text2')}</Typography>
+            <Typography variant="p">{t('contacts.description')}</Typography>
           </div>
           <ContactForm className="w-full md:w-[60%]" />
         </div>
-      </div>
+      </section>
     </AppLayout>
   )
 }

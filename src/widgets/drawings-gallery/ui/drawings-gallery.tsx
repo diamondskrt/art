@@ -38,7 +38,7 @@ export function DrawingsGallery({ className }: Props) {
   if (isLoading) {
     return (
       <>
-        <Skeleton className="mb-8 w-[350px] h-9" />
+        <Skeleton className="mb-8 h-9 w-[350px]" />
         <div
           className={cn(
             'grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4',

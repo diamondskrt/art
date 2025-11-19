@@ -39,7 +39,7 @@ export function Modal({
       <DialogContent
         showCloseButton
         className={cn(
-          'md:max-w-[500px] h-[200px] grid px-6 py-4 bg-background rounded',
+          'bg-background grid h-[200px] rounded px-6 py-4 md:max-w-[500px]',
           description ? 'grid-rows-[auto_1fr_auto]' : 'grid-rows-[1fr_auto]'
         )}
       >

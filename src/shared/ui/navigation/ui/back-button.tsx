@@ -25,7 +25,7 @@ export function BackButton(props: ButtonProps) {
       onClick={handleBack}
       className="cursor-pointer"
     >
-      <ArrowLeftIcon className="w-4 h-4" />
+      <ArrowLeftIcon className="h-4 w-4" />
       {t('back')}
     </Button>
   )

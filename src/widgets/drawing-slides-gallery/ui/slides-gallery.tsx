@@ -52,13 +52,13 @@ export function SlidesGallery({
         <Content
           aria-describedby={undefined}
           data-slot="dialog-content"
-          className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 w-full md:w-[60%] translate-x-[-50%] translate-y-[-50%] duration-200"
+          className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 w-full translate-x-[-50%] translate-y-[-50%] duration-200 md:w-[60%]"
         >
           <DialogTitleHidden />
-          <div className="absolute z-10 top-1/2 left-0 -translate-y-1/2">
+          <div className="absolute top-1/2 left-0 z-10 -translate-y-1/2">
             <Button
               variant="ghost"
-              className="text-white cursor-pointer hover:bg-transparent hover:text-white"
+              className="cursor-pointer text-white hover:bg-transparent hover:text-white"
               disabled={isBeginning}
               onClick={() => swiperRef.current?.slidePrev()}
             >
@@ -84,23 +84,23 @@ export function SlidesGallery({
             >
               {images.map(({ $id, url, name }) => (
                 <SwiperSlide key={$id}>
-                  <div className="relative w-full aspect-video">
-                    <OImage src={url} alt={name} />
+                  <div className="relative aspect-video w-full">
+                    <OImage src={url} alt={name} fill />
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
 
             <div className="absolute -bottom-10 left-0 w-full">
-              <Typography variant="p" className="text-center text-white mt-4">
+              <Typography variant="p" className="mt-4 text-center text-white">
                 {images[currentIndex].name}
               </Typography>
             </div>
           </div>
-          <div className="absolute z-10 top-1/2 right-0 -translate-y-1/2">
+          <div className="absolute top-1/2 right-0 z-10 -translate-y-1/2">
             <Button
               variant="ghost"
-              className="text-white cursor-pointer hover:bg-transparent hover:text-white"
+              className="cursor-pointer text-white hover:bg-transparent hover:text-white"
               disabled={isEnd}
               onClick={() => swiperRef.current?.slideNext()}
             >

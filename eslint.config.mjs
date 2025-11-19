@@ -1,25 +1,18 @@
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
-import { FlatCompat } from '@eslint/eslintrc'
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { FlatCompat } from "@eslint/eslintrc";
+import sortExports from "eslint-plugin-sort-exports";
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-})
+});
 
 const eslintConfig = [
-  ...compat.extends(
-    'next/core-web-vitals',
-    'next/typescript',
-    'plugin:import/recommended',
-    'plugin:import/typescript',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'prettier'
-  ),
+  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
   {
     ignores: [
       "node_modules/**",
@@ -27,35 +20,12 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
-      "src/shared/lib/i18n/messages/*.d.json.ts",
     ],
-    settings: {
-      react: {
-        version: 'detect',
-      },
-      'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true,
-        },
-        node: true,
-      },
+    plugins: {
+      "sort-exports": sortExports,
     },
     rules: {
-      // TypeScript
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        { argsIgnorePattern: '^_' },
-      ],
-
-      // React
-      'react/react-in-jsx-scope': 'off', // Next.js doesn't need React in scope
-      'react/prop-types': 'off',
-
-      // React Hooks
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
-
-      // Imports Sorting
+      "object-curly-spacing": ["error", "always"],
       "sort-imports": [
         "error",
         {
@@ -63,56 +33,35 @@ const eslintConfig = [
           ignoreCase: false,
         },
       ],
-
-      // Imports Ordering
-      'import/order': [
-        'error',
+      "import/order": [
+        "error",
         {
           groups: [
-            'builtin',
-            'external',
-            'internal',
-            'parent',
-            'sibling',
-            'index',
+            "builtin",
+            "external",
+            "internal",
+            ["parent", "sibling", "index"],
+            "object",
+            "type",
           ],
           pathGroups: [
             {
-              pattern: 'next{,/**}',
-              group: 'external',
-              position: 'before',
+              pattern: "~/**",
+              group: "internal",
+              position: "before",
             },
           ],
-          pathGroupsExcludedImportTypes: ['builtin', 'external'],
-          'newlines-between': 'always',
+          pathGroupsExcludedImportTypes: ["builtin"],
           alphabetize: {
-            order: 'asc',
+            order: "asc",
             caseInsensitive: true,
           },
+          "newlines-between": "always",
         },
       ],
-      'import/no-unresolved': 'error',
-      'import/no-cycle': ['error', { maxDepth: 1 }],
-      'import/no-unused-modules': 'error',
-      'import/no-duplicates': 'error',
-      'no-restricted-imports': [
-        'error',
-        {
-          patterns: ['lodash', 'lodash/*'],
-          paths: [
-            {
-              name: 'lodash',
-              message: 'Import from lodash-es instead of lodash.',
-            },
-          ],
-        },
-      ],
-
-      // Standard rules
-      'no-console': ['error', { allow: ['warn', 'error'] }],
-      'no-debugger': 'error',
+      "sort-exports/sort-exports": ["error", { sortDir: "asc" }],
     },
   },
-]
+];
 
-export default eslintConfig
+export default eslintConfig;

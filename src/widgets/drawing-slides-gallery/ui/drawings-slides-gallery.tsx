@@ -33,7 +33,7 @@ export function DrawingSlidesGallery({ className }: Props) {
         {Array.from({ length: 4 }).map((_, index) => (
           <div
             key={index}
-            className="relative aspect-square rounded-md overflow-hidden"
+            className="relative aspect-square overflow-hidden rounded-md"
           >
             <Skeleton className="h-full w-full" />
           </div>
@@ -54,12 +54,13 @@ export function DrawingSlidesGallery({ className }: Props) {
           return (
             <div
               key={$id}
-              className="relative aspect-square rounded-md overflow-hidden"
+              className="relative aspect-square overflow-hidden rounded-md"
             >
               <OImage
                 src={images[0].url}
                 alt={images[0].name}
                 className="cursor-pointer"
+                fill
                 onClick={() => openSwiperGallery(index)}
               />
             </div>

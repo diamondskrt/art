@@ -1,7 +1,7 @@
 export type {
   AddDrawingPayload,
-  UpdateDrawingPayload,
   Drawing,
   DrawingImage,
   GetDrawingsParams,
+  UpdateDrawingPayload,
 } from './types'

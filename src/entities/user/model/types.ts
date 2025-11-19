@@ -13,4 +13,4 @@ type User = {
 
 type LoginPayload = z.infer<typeof loginFormSchema>
 
-export type { User, LoginPayload, Role }
+export type { LoginPayload, Role, User }

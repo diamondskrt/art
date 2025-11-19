@@ -5,4 +5,4 @@ import { routing } from './routing'
 const { Link, redirect, usePathname, useRouter, getPathname } =
   createNavigation(routing)
 
-export { Link, redirect, usePathname, useRouter, getPathname }
+export { Link, getPathname, redirect, usePathname, useRouter }

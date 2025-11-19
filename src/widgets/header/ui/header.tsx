@@ -20,15 +20,16 @@ export function Header() {
   const navigationLinks: BreadcrumbItem[] = [
     { href: '/home', label: t('home') },
     { href: '/drawings/list', label: t('drawings') },
+    { href: '/about', label: t('about') },
   ]
 
   return (
     <header className="py-4">
       <nav className="container flex items-center justify-between">
         <Typography asChild variant="h3" className="uppercase">
-          <Link href="/home">KE</Link>
+          <Link href="/home">ELVI ART</Link>
         </Typography>
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden items-center gap-4 md:flex">
           {navigationLinks.map((link) => (
             <NavigationLink key={link.label} href={link.href!}>
               {link.label}
@@ -40,8 +41,8 @@ export function Header() {
           <LocaleSwitcher className="min-w-[80px]" />
           <Profile />
           <DrawerMenu navigationLinks={navigationLinks}>
-            <Button variant="outline" className="md:hidden cursor-pointer">
-              <MenuIcon className="w-4 h-4" />
+            <Button variant="outline" className="cursor-pointer md:hidden">
+              <MenuIcon className="h-4 w-4" />
             </Button>
           </DrawerMenu>
         </div>

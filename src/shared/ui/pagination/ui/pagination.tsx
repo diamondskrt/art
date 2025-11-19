@@ -1,7 +1,6 @@
 'use client'
 
 import { PaginationProps } from '../model'
-
 import {
   Pagination as PaginationComponent,
   PaginationContent,
@@ -33,7 +32,7 @@ export const Pagination = ({
         {Array.from({ length: totalPages }, (_, i) => (
           <PaginationItem key={i}>
             <button
-              className={`px-3 py-1 rounded ${
+              className={`rounded px-3 py-1 ${
                 page === i + 1 ? 'bg-primary text-white' : 'bg-muted'
               }`}
               onClick={() => onPageChangeAction(i + 1)}

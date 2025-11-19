@@ -1,15 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import type { Swiper as SwiperType } from 'swiper'
 import { FreeMode, Thumbs } from 'swiper/modules'
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react'
-
 import 'swiper/css'
 import 'swiper/css/thumbs'
 import 'swiper/css/free-mode'
+
 import { DrawingImage } from '~/entities/drawing'
 import { OImage } from '~/shared/ui'
+
+import type { Swiper as SwiperType } from 'swiper'
 
 type SwiperProps = {
   images: DrawingImage[]
@@ -19,19 +20,19 @@ export function DrawingSwiper({ images }: SwiperProps) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null)
 
   return (
-    <div className="relative grid gap-2 h-full w-full">
+    <div className="relative grid h-full w-full gap-2">
       {/* Main Swiper */}
       <SwiperComponent
         modules={[Thumbs]}
         slidesPerView={1}
         spaceBetween={8}
         thumbs={{ swiper: thumbsSwiper }}
-        className="w-full aspect-square"
+        className="aspect-square w-full"
       >
         {images.map(({ $id, url, name }) => (
           <SwiperSlide key={$id}>
-            <div className="relative w-full h-full rounded overflow-hidden">
-              <OImage src={url} alt={name} />
+            <div className="relative h-full w-full overflow-hidden rounded">
+              <OImage src={url} alt={name} fill />
             </div>
           </SwiperSlide>
         ))}
@@ -45,12 +46,12 @@ export function DrawingSwiper({ images }: SwiperProps) {
         slidesPerView={3}
         freeMode
         watchSlidesProgress
-        className="w-full h-[100px]"
+        className="h-[100px] w-full"
       >
         {images.map(({ $id, url, name }) => (
           <SwiperSlide key={$id} className="swiper-slide-thumb">
-            <div className="relative w-full h-full rounded overflow-hidden">
-              <OImage src={url} alt={name} />
+            <div className="relative h-full w-full overflow-hidden rounded">
+              <OImage src={url} alt={name} fill />
             </div>
           </SwiperSlide>
         ))}

@@ -4,4 +4,4 @@ type Nullable<T> = T | null
 
 type LocaleParams = Promise<{ locale: Locale }>
 
-export type { Nullable, LocaleParams }
+export type { LocaleParams, Nullable }

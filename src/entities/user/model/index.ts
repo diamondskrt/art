@@ -1,1 +1,1 @@
-export type { User, LoginPayload, Role } from './types'
+export type { LoginPayload, Role, User } from './types'

@@ -1,4 +1,6 @@
-import { FacebookIcon, InstagramIcon, TwitterIcon } from 'lucide-react'
+import { Typography } from '~/shared/ui'
+
+import { SocialLinks } from './social-links'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
@@ -7,12 +9,10 @@ function Footer() {
     <footer className="py-12">
       <div className="container">
         <div className="flex items-center justify-between">
-          <small>© All Rights Reserved, {currentYear}</small>
-          <div className="flex gap-4">
-            <TwitterIcon className="h-4 w-4 shrink-0" />
-            <InstagramIcon className="h-4 w-4 shrink-0" />
-            <FacebookIcon className="h-4 w-4 shrink-0" />
-          </div>
+          <Typography variant="small">
+            © All Rights Reserved, {currentYear}
+          </Typography>
+          <SocialLinks />
         </div>
       </div>
     </footer>

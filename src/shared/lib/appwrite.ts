@@ -16,13 +16,13 @@ const storage = new Storage(appwriteClient)
 const account = new Account(appwriteClient)
 
 export {
-  databases,
-  storage,
-  account,
-  DATABASE_ID,
+  API_URL,
   BUCKET_ID,
+  DATABASE_ID,
   DRAWINGS_COLLECTION_ID,
   IMAGES_COLLECTION_ID,
   PROJECT_ID,
-  API_URL,
+  account,
+  databases,
+  storage,
 }

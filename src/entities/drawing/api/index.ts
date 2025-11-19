@@ -1,7 +1,7 @@
 export {
   addDrawing,
-  getDrawings,
-  getDrawing,
   deleteDrawing,
+  getDrawing,
+  getDrawings,
   updateDrawing,
 } from './api'

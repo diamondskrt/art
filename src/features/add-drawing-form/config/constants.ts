@@ -1,7 +1,10 @@
 const defaultValues = {
   title: '',
   description: '',
-  price: 0,
+  length: undefined,
+  width: undefined,
+  depth: undefined,
+  price: undefined,
   images: [] as File[],
 }
 

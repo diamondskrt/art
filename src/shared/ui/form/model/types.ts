@@ -1,10 +1,12 @@
 import {
   Control,
+  ControllerFieldState,
   ControllerRenderProps,
   FieldPath,
   FieldValues,
   FormProviderProps,
   Path,
+  UseFormStateReturn,
 } from 'react-hook-form'
 
 type FormItemContextValue = {
@@ -26,6 +28,14 @@ type FormProps<T extends FieldValues> = Omit<
     onSubmit: (values: T) => void
   }
 
+type RenderParams<T extends FieldValues> = {
+  field: ControllerRenderProps<T, Path<T>>
+  fieldState: ControllerFieldState
+  formState: UseFormStateReturn<T>
+}
+
+type FormFieldItemType = 'text' | 'email' | 'password' | 'number' | 'price'
+
 type FormFieldItemProps<T extends FieldValues> =
   React.HTMLAttributes<HTMLDivElement> & {
     control: Control<T>
@@ -33,13 +43,21 @@ type FormFieldItemProps<T extends FieldValues> =
     label?: string
     placeholder?: string
     description?: string
-    type?: 'text' | 'email' | 'password' | 'number'
-    render?: (field: ControllerRenderProps<T, Path<T>>) => React.ReactNode
+    type?: FormFieldItemType
+    render?: ({
+      field,
+      fieldState,
+      formState,
+    }: RenderParams<T>) => React.ReactNode
   }
 
+type FormFieldInputProps<T extends FieldValues> = RenderParams<T> &
+  Pick<FormFieldItemProps<T>, 'placeholder' | 'type'>
+
 export type {
-  FormItemContextValue,
   FormFieldContextValue,
+  FormFieldInputProps,
   FormFieldItemProps,
+  FormItemContextValue,
   FormProps,
 }

@@ -1,4 +1,12 @@
 export {
+  SIDEBAR_COOKIE_MAX_AGE,
+  SIDEBAR_COOKIE_NAME,
+  SIDEBAR_KEYBOARD_SHORTCUT,
+  SIDEBAR_WIDTH,
+  SIDEBAR_WIDTH_ICON,
+  SidebarContext,
+} from './config'
+export {
   Sidebar,
   SidebarContent,
   SidebarFooter,
@@ -22,13 +30,5 @@ export {
   SidebarSeparator,
   SidebarTrigger,
 } from './ui'
-export { useSidebar } from './lib'
-export {
-  SIDEBAR_COOKIE_NAME,
-  SIDEBAR_COOKIE_MAX_AGE,
-  SIDEBAR_WIDTH,
-  SIDEBAR_WIDTH_ICON,
-  SIDEBAR_KEYBOARD_SHORTCUT,
-  SidebarContext,
-} from './config'
 export type { SidebarContextProps } from './model'
+export { useSidebar } from './lib'
